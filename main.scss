@@ -354,13 +354,18 @@ nav {
         }
     }
 
-    .calendar {
+    .github {
+      margin-top: 20px;
+      .heading {
+        color: $primary-color;
+        font-size: 2rem;
+      }
+      .calendar {
         font-family: 'Poppins', sans-serif;
         color: $text-color;
         background: transparent;
         padding: 20px 0;
         border: none;
-        margin-top: 10px;
         max-width: 950px;
 
         .loading-text {
@@ -399,6 +404,7 @@ nav {
                 font-size: 1.2rem;
                 font-weight: 300;
                 margin-bottom: 19px;
+                display: none;
                 &::before {
                     content: 'Github ';
                 }
@@ -447,13 +453,14 @@ nav {
             }
         }
     }
+    }
     .skills {
         width: 100%;
         // margin-top: 20px;
         .heading {
             color: $primary-color;
             .text {
-                margin-bottom: 30px;
+                font-size: 2rem;
             }
         }
         .skills-content-container {
@@ -462,25 +469,34 @@ nav {
             //width: 90%;
             overflow: hidden;
             display: flex;
-            &:hover .skills-content {
-                animation-play-state: paused;
-            }
+            cursor: grab;
+            user-select: none;   // standar modern browsers
+            -webkit-user-select: none; // Safari
+            -ms-user-select: none; 
+            -webkit-mask-image: linear-gradient(to right, transparent, $bg-color 1%, $bg-color 99%, transparent);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-image: linear-gradient(to right, transparent, $bg-color 1%, $bg-color 99%, transparent);
+            mask-repeat: no-repeat;
+            mask-size: 100% 100%;
+            
             .skills-content {
                 display: flex;
-                will-change: transform;
                 color: $text-color;
-                animation: scrolling 20s linear infinite;
-                gap: 20px;
-                padding-right: 20px;
+                -ms-user-select: none; 
                 margin: 0 10px;
-                @keyframes scrolling {
-                    0% {
-                      transform: translateX(0);
-                    }
-                    100% {
-                      transform: translateX(-100%);
-                    }
-                  }
+                gap: 20px;
+                // will-change: transform;
+                // animation: scrolling 30s linear infinite;
+                // padding-right: 20px;
+                // @keyframes scrolling {
+                //     0% {
+                //       transform: translateX(0);
+                //     }
+                //     100% {
+                //       transform: translateX(-100%);
+                //     }
+                //   }
                 .skills-card {
                     width: 380px;
                     height: 150px;
@@ -506,9 +522,16 @@ nav {
 
 // TIMELINE PENDIDIKAN MULAI
 
+.timeline-heading {
+  margin-bottom: 50px;
+  padding: 0 40px;
+  color: $primary-color;
+  font-size: 1.5rem;
+}
+
 .timeline {
 	position: relative;
-    padding: 0 40px;
+  padding: 0 40px;
 
 	&::before {
 		content: '';

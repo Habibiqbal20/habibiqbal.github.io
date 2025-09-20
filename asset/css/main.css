@@ -284,16 +284,22 @@ nav .main .menu-btn {
   font-weight: 100;
   line-height: 1.6;
 }
-.about .calendar {
+.about .github {
+  margin-top: 20px;
+}
+.about .github .heading {
+  color: #00e0ff;
+  font-size: 2rem;
+}
+.about .github .calendar {
   font-family: "Poppins", sans-serif;
   color: #fff;
   background: transparent;
   padding: 20px 0;
   border: none;
-  margin-top: 10px;
   max-width: 950px;
 }
-.about .calendar .loading-text {
+.about .github .calendar .loading-text {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
@@ -313,51 +319,52 @@ nav .main .menu-btn {
     background-position: -200% center;
   }
 }
-.about .calendar .position-relative a {
+.about .github .calendar .position-relative a {
   display: none;
 }
-.about .calendar .position-relative .sr-only {
+.about .github .calendar .position-relative .sr-only {
   text-align: start;
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 19px;
-}
-.about .calendar .position-relative .sr-only::before {
-  content: "Github ";
-}
-.about .calendar .contrib-column {
   display: none;
 }
-.about .calendar .contrib-number {
+.about .github .calendar .position-relative .sr-only::before {
+  content: "Github ";
+}
+.about .github .calendar .contrib-column {
+  display: none;
+}
+.about .github .calendar .contrib-number {
   color: #00e0ff;
   font-weight: bold;
   font-size: 20px;
 }
-.about .calendar .contrib-text {
+.about .github .calendar .contrib-text {
   color: #aaa;
   font-size: 14px;
 }
-.about .calendar rect.day {
+.about .github .calendar rect.day {
   stroke: rgb(10.1298701299, 10.1298701299, 15.8701298701);
   transition: all 0.2s ease;
 }
-.about .calendar rect.day:hover {
+.about .github .calendar rect.day:hover {
   stroke: #00e0ff;
   stroke-width: 2px;
 }
-.about .calendar .day:hover {
+.about .github .calendar .day:hover {
   cursor: pointer;
 }
-.about .calendar .calendar-graph text {
+.about .github .calendar .calendar-graph text {
   fill: #aaa;
   font-size: 12px;
 }
-.about .calendar.calendar-responsive {
+.about .github .calendar.calendar-responsive {
   max-width: 100%;
   overflow-x: auto;
 }
 @media (max-width: 768px) {
-  .about .calendar .table-column {
+  .about .github .calendar .table-column {
     border-left: none;
   }
 }
@@ -368,33 +375,30 @@ nav .main .menu-btn {
   color: #00e0ff;
 }
 .about .skills .heading .text {
-  margin-bottom: 30px;
+  font-size: 2rem;
 }
 .about .skills .skills-content-container {
   margin: 0 auto;
   padding: 20px 0;
   overflow: hidden;
   display: flex;
-}
-.about .skills .skills-content-container:hover .skills-content {
-  animation-play-state: paused;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #1e1e2f 1%, #1e1e2f 99%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent, #1e1e2f 1%, #1e1e2f 99%, transparent);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 .about .skills .skills-content-container .skills-content {
   display: flex;
-  will-change: transform;
   color: #fff;
-  animation: scrolling 20s linear infinite;
-  gap: 20px;
-  padding-right: 20px;
+  -ms-user-select: none;
   margin: 0 10px;
-}
-@keyframes scrolling {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  gap: 20px;
 }
 .about .skills .skills-content-container .skills-content .skills-card {
   width: 380px;
@@ -410,6 +414,13 @@ nav .main .menu-btn {
 .about .skills .skills-content-container .skills-content .skills-card .information {
   font-weight: 300;
   line-height: 1.2;
+}
+
+.timeline-heading {
+  margin-bottom: 50px;
+  padding: 0 40px;
+  color: #00e0ff;
+  font-size: 1.5rem;
 }
 
 .timeline {
