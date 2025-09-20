@@ -106,9 +106,57 @@ responsive: true,
 
 
 
+
+
+// const track = document.getElementById("scrollTrack");
+// const content = track.querySelector(".skills-content");
+
+// while (track.scrollWidth < window.innerWidth * 3) {
+//   track.appendChild(content.cloneNode(true));
+// }
+
+// let isDown = false;
+// let startX;
+// let scrollLeft;
+
+// // ---- Drag manual ----
+// track.addEventListener("mousedown", (e) => {
+//   isDown = true;
+//   startX = e.pageX - track.offsetLeft;
+//   scrollLeft = track.scrollLeft;
+//   track.style.cursor = "grabbing";
+// });
+// track.addEventListener("mouseleave", () => { isDown = false; });
+// track.addEventListener("mouseup", () => {
+//   isDown = false;
+//   track.style.cursor = "grab";
+// });
+// track.addEventListener("mousemove", (e) => {
+//   if (!isDown) return;
+//   e.preventDefault();
+//   const x = e.pageX - track.offsetLeft;
+//   const walk = (x - startX) * 1.2; 
+//   track.scrollLeft = scrollLeft - walk;
+// });
+
+// // ---- Auto scroll ----
+// let speed = 1; // kecepatan scroll otomatis
+// function autoScroll() {
+//   track.scrollLeft += speed;
+//   // kalau sudah sampai clone → reset ke awal
+//   if (track.scrollLeft >= content.scrollWidth) {
+//     track.scrollLeft = 0;
+//   }
+//   requestAnimationFrame(autoScroll);
+// }
+// autoScroll();
+
+
+
 const track = document.getElementById("scrollTrack");
 const content = track.querySelector(".skills-content");
 
+// gandakan isi supaya panjang
 while (track.scrollWidth < window.innerWidth * 3) {
   track.appendChild(content.cloneNode(true));
 }
@@ -117,7 +165,7 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
-// ---- Drag manual ----
+// ---- Drag manual (mouse) ----
 track.addEventListener("mousedown", (e) => {
   isDown = true;
   startX = e.pageX - track.offsetLeft;
@@ -137,12 +185,29 @@ track.addEventListener("mousemove", (e) => {
   track.scrollLeft = scrollLeft - walk;
 });
 
+// ---- Drag manual (touch) ----
+track.addEventListener("touchstart", (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+});
+track.addEventListener("touchmove", (e) => {
+  if (!isDown) return;
+  const x = e.touches[0].pageX - track.offsetLeft;
+  const walk = (x - startX) * 1.2;
+  track.scrollLeft = scrollLeft - walk;
+});
+track.addEventListener("touchend", () => {
+  isDown = false;
+});
+
 // ---- Auto scroll ----
 let speed = 1; // kecepatan scroll otomatis
 function autoScroll() {
   track.scrollLeft += speed;
-  // kalau sudah sampai clone → reset ke awal
-  if (track.scrollLeft >= content.scrollWidth) {
+
+  // gunakan setengah total width (karena ada clone)
+  if (track.scrollLeft >= track.scrollWidth / 2) {
     track.scrollLeft = 0;
   }
   requestAnimationFrame(autoScroll);
