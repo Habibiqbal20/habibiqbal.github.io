@@ -154,10 +154,13 @@ responsive: true,
 
 
 const track = document.getElementById("scrollTrack");
-const content = track.querySelector(".skills-content");
+const firstContent = track.querySelector(".skills-content");
 
-// Gandakan isi biar panjang (minimal 2x)
-track.appendChild(content.cloneNode(true));
+// panjang satu set konten
+const singleWidth = firstContent.scrollWidth;
+
+// clone satu kali
+track.appendChild(firstContent.cloneNode(true));
 
 let isDown = false;
 let startX;
@@ -199,14 +202,13 @@ track.addEventListener("touchend", () => {
   isDown = false;
 });
 
-// ---- Auto scroll ----
-let speed = 1; // kecepatan scroll otomatis
-const singleWidth = content.scrollWidth; // panjang konten asli
+// ---- Auto scroll (seamless) ----
+let speed = 1;
 
 function autoScroll() {
   track.scrollLeft += speed;
 
-  // Kalau sudah lewat panjang konten asli → balikkan ke posisi scrollLeft - singleWidth
+  // reset ke awal dengan pengurangan, bukan set 0
   if (track.scrollLeft >= singleWidth) {
     track.scrollLeft -= singleWidth;
   }
