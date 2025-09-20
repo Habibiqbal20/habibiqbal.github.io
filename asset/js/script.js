@@ -1,4 +1,4 @@
-//Typing effect Mulai
+//Typing Effect Mulai
 
 const texts = ["Web Developer", "Video/Photo Editor", "Office Administrator", "Freelancer"];
 
@@ -35,11 +35,13 @@ function type() {
 if (el) type();
 else console.warn("Typing element not found: .typing");
 
-//Typing effect Selesai
+//Typing Effect Selesai
 
 
 
-// Sidebar menu mulai
+
+
+// Sidebar Menu mulai
 
 const menuBtn = document.querySelector('.menu-btn');
 const slide = document.querySelector('.list');
@@ -62,7 +64,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Sidebar menu selesai
+// Sidebar Menu selesai
 
 
 
@@ -83,7 +85,6 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseleave", () => {
-  // tetap pakai gradient, tapi pusatnya dipindah jauh di luar layar
   document.body.style.background = `
     radial-gradient(circle at -9999px -9999px, 
     rgba(0, 224, 255, 0), 
@@ -103,6 +104,73 @@ responsive: true,
 });
 
 // Github Contributor Selesai
+
+
+
+
+
+//Skills Auto Scroll dan Manual Drag Mulai
+
+const track = document.getElementById("scrollTrack");
+const firstContent = track.querySelector(".skills-content");
+
+// Panjang satu set
+const singleWidth = firstContent.getBoundingClientRect().width;
+
+// Clone satu kali
+track.appendChild(firstContent.cloneNode(true));
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// ---- Drag manual (mouse) ----
+track.addEventListener("mousedown", (e) => {
+  isDown = true;
+  startX = e.pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+  track.style.cursor = "grabbing";
+});
+track.addEventListener("mouseleave", () => { isDown = false; });
+track.addEventListener("mouseup", () => {
+  isDown = false;
+  track.style.cursor = "grab";
+});
+track.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - track.offsetLeft;
+  const walk = (x - startX) * 1.2; 
+  track.scrollLeft = scrollLeft - walk;
+});
+
+// ---- Drag manual (touch) ----
+track.addEventListener("touchstart", (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+});
+track.addEventListener("touchmove", (e) => {
+  if (!isDown) return;
+  const x = e.touches[0].pageX - track.offsetLeft;
+  const walk = (x - startX) * 1.2;
+  track.scrollLeft = scrollLeft - walk;
+});
+track.addEventListener("touchend", () => {
+  isDown = false;
+});
+
+// ---- Auto scroll (pakai modulus biar 100% seamless) ----
+let speed = 1;
+
+function autoScroll() {
+  track.scrollLeft = (track.scrollLeft + speed) % singleWidth;
+  requestAnimationFrame(autoScroll);
+}
+autoScroll();
+
+
+//Skills Auto Scroll dan Manual Drag Selesai
 
 
 
@@ -150,69 +218,3 @@ responsive: true,
 //   requestAnimationFrame(autoScroll);
 // }
 // autoScroll();
-
-
-
-const track = document.getElementById("scrollTrack");
-const firstContent = track.querySelector(".skills-content");
-
-// panjang satu set konten
-const singleWidth = firstContent.scrollWidth;
-
-// clone satu kali
-track.appendChild(firstContent.cloneNode(true));
-
-let isDown = false;
-let startX;
-let scrollLeft;
-
-// ---- Drag manual (mouse) ----
-track.addEventListener("mousedown", (e) => {
-  isDown = true;
-  startX = e.pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
-  track.style.cursor = "grabbing";
-});
-track.addEventListener("mouseleave", () => { isDown = false; });
-track.addEventListener("mouseup", () => {
-  isDown = false;
-  track.style.cursor = "grab";
-});
-track.addEventListener("mousemove", (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - track.offsetLeft;
-  const walk = (x - startX) * 1.2; 
-  track.scrollLeft = scrollLeft - walk;
-});
-
-// ---- Drag manual (touch) ----
-track.addEventListener("touchstart", (e) => {
-  isDown = true;
-  startX = e.touches[0].pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
-});
-track.addEventListener("touchmove", (e) => {
-  if (!isDown) return;
-  const x = e.touches[0].pageX - track.offsetLeft;
-  const walk = (x - startX) * 1.2;
-  track.scrollLeft = scrollLeft - walk;
-});
-track.addEventListener("touchend", () => {
-  isDown = false;
-});
-
-// ---- Auto scroll (seamless) ----
-let speed = 1;
-
-function autoScroll() {
-  track.scrollLeft += speed;
-
-  // reset ke awal dengan pengurangan, bukan set 0
-  if (track.scrollLeft >= singleWidth) {
-    track.scrollLeft -= singleWidth;
-  }
-
-  requestAnimationFrame(autoScroll);
-}
-autoScroll();
