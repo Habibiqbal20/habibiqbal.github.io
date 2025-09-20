@@ -286,20 +286,77 @@ nav .main .menu-btn {
 }
 .about .github {
   margin-top: 20px;
+  width: 100%;
+  margin-bottom: 50px;
 }
 .about .github .heading {
   color: #00e0ff;
   font-size: 2rem;
+  margin-bottom: 10px;
 }
-.about .github .calendar {
+.about .github .content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .about .github .content {
+    flex-direction: column;
+  }
+  .about .github .content .calendar {
+    width: 100% !important;
+  }
+}
+.about .github .content .github-profile {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(50, 50, 80);
+  width: min-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .about .github .content .github-profile {
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    height: min-content;
+  }
+  .about .github .content .github-profile .photo {
+    margin-bottom: 0 !important;
+  }
+  .about .github .content .github-profile .photo img {
+    width: 25vw !important;
+  }
+}
+.about .github .content .github-profile .photo {
+  margin-bottom: 10px;
+}
+.about .github .content .github-profile .photo img {
+  width: 120px;
+}
+.about .github .content .information {
+  color: white;
+}
+.about .github .content .information .location p,
+.about .github .content .information .full-name p,
+.about .github .content .information .birth-date p {
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.about .github .content .calendar {
   font-family: "Poppins", sans-serif;
   color: #fff;
   background: transparent;
-  padding: 20px 0;
+  padding: 10px;
   border: none;
   max-width: 950px;
+  border-radius: 10px;
+  background-color: rgb(50, 50, 80);
+  margin: 0;
+  width: 80%;
 }
-.about .github .calendar .loading-text {
+.about .github .content .calendar .loading-text {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
@@ -319,52 +376,49 @@ nav .main .menu-btn {
     background-position: -200% center;
   }
 }
-.about .github .calendar .position-relative a {
+.about .github .content .calendar .position-relative a {
   display: none;
 }
-.about .github .calendar .position-relative .sr-only {
+.about .github .content .calendar .position-relative .sr-only {
   text-align: start;
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 19px;
   display: none;
 }
-.about .github .calendar .position-relative .sr-only::before {
+.about .github .content .calendar .position-relative .sr-only::before {
   content: "Github ";
 }
-.about .github .calendar .contrib-column {
-  display: none;
-}
-.about .github .calendar .contrib-number {
+.about .github .content .calendar .contrib-number {
   color: #00e0ff;
   font-weight: bold;
   font-size: 20px;
 }
-.about .github .calendar .contrib-text {
+.about .github .content .calendar .contrib-text {
   color: #aaa;
   font-size: 14px;
 }
-.about .github .calendar rect.day {
+.about .github .content .calendar rect.day {
   stroke: rgb(10.1298701299, 10.1298701299, 15.8701298701);
   transition: all 0.2s ease;
 }
-.about .github .calendar rect.day:hover {
+.about .github .content .calendar rect.day:hover {
   stroke: #00e0ff;
   stroke-width: 2px;
 }
-.about .github .calendar .day:hover {
+.about .github .content .calendar .day:hover {
   cursor: pointer;
 }
-.about .github .calendar .calendar-graph text {
+.about .github .content .calendar .calendar-graph text {
   fill: #aaa;
   font-size: 12px;
 }
-.about .github .calendar.calendar-responsive {
+.about .github .content .calendar.calendar-responsive {
   max-width: 100%;
   overflow-x: auto;
 }
 @media (max-width: 768px) {
-  .about .github .calendar .table-column {
+  .about .github .content .calendar .table-column {
     border-left: none;
   }
 }
@@ -638,12 +692,14 @@ nav .main .menu-btn {
 .cd-timeline-content .timeline-content-info i {
   margin-right: 5px;
 }
-.cd-timeline-content .timeline-content-info .timeline-content-info-title, .cd-timeline-content .timeline-content-info .timeline-content-info-date {
+.cd-timeline-content .timeline-content-info .timeline-content-info-title,
+.cd-timeline-content .timeline-content-info .timeline-content-info-date {
   width: calc(50% - 2px);
   display: inline-block;
 }
 @media (max-width: 500px) {
-  .cd-timeline-content .timeline-content-info .timeline-content-info-title, .cd-timeline-content .timeline-content-info .timeline-content-info-date {
+  .cd-timeline-content .timeline-content-info .timeline-content-info-title,
+  .cd-timeline-content .timeline-content-info .timeline-content-info-date {
     display: block;
     width: 100%;
   }
@@ -679,7 +735,8 @@ nav .main .menu-btn {
   margin-bottom: 5px;
 }
 
-.cd-timeline-content p, .cd-timeline-content .cd-date {
+.cd-timeline-content p,
+.cd-timeline-content .cd-date {
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   font-size: 0.8125rem;
@@ -714,7 +771,8 @@ nav .main .menu-btn {
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  .cd-timeline-content .cd-read-more,
+  .cd-timeline-content .cd-date {
     font-size: 14px;
     font-size: 0.875rem;
   }
