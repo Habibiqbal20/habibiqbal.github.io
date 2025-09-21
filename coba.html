@@ -1,100 +1,152 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Efek Cursor Gradient</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #111;
-      overflow: hidden;
-    }
-
-    .hover-bg {
-      width: 100%;
-      height: 100%;
-      background: #111; /* fallback */
-      transition: background 0.1s ease; /* biar halus */
-    }
-  </style>
-</head>
-<body>
-  <div class="hover-bg"></div>
-
-  <script>
-    const hoverBg = document.querySelector(".hover-bg");
-
-    document.addEventListener("mousemove", (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      // Buat gradasi warna multi-layer untuk efek lebih keren
-      hoverBg.style.background = `
-        radial-gradient(circle at ${x}px ${y}px, 
-        rgba(0, 200, 255, 0.7), 
-        rgba(0, 0, 0, 0.9) 200px),
-        radial-gradient(circle at ${x}px ${y}px, 
-        rgba(255, 0, 150, 0.4), 
-        transparent 400px)
-      `;
-    });
-
-    document.addEventListener("mouseleave", () => {
-      // kembali ke default
-      hoverBg.style.background = "#111";
-    });
-  </script>
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Powered Connections</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #111;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .center {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.2rem;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    line {
+      stroke: gray;
+      stroke-width: 2;
+    }
+
+    .glow {
+      stroke: cyan;
+      stroke-width: 4;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      filter: drop-shadow(0 0 6px cyan);
+      animation: flow 3s linear infinite;
+    }
+
+    @keyframes flow {
+      0% {
+        stroke-dashoffset: 200;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <section id="cd-timeline Pendidikan" class="cd-container">
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-picture">
-      </div>
-      <div class="cd-timeline-content">
-        <h2>Penta Consulting</h2>
-        <div class="timeline-content-info">
-          <span class="timeline-content-info-title">
-            <i class="fa fa-certificate" aria-hidden="true"></i>
-            Front End Developer
-          </span>
-          <span class="timeline-content-info-date">
-            <i class="fa fa-calendar-o" aria-hidden="true"></i>
-            June 2016 - Present
-          </span>
-        </div>
-        <p>Working alongside the designer team implementing the designs, also developing custom solutions to address
-          team necessities.</p>
-        <ul class="content-skills">
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JavaScript</li>
-          <li>jQuery</li>
-          <li>Wordpress</li>
-        </ul>
-      </div>
-    </div>
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-movie">
-      </div>
+  <div class="container">
+    <!-- Left side -->
+    <div class="logo" id="logo1">HTML</div>
+    <div class="logo" id="logo2">CSS</div>
+    <div class="logo" id="logo3">JS</div>
 
-      <div class="cd-timeline-content">
-        <h2>Title of section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi
-          placeat iure tempora laudantium ipsa ad debitis unde?</p>
-        <span class="cd-date">Jan 18</span>
-      </div>
-    </div>
-  </section>
+    <!-- Center -->
+    <div class="center" id="center">Powered</div>
+
+    <!-- Right side -->
+    <div class="logo" id="logo4">Python</div>
+    <div class="logo" id="logo5">PHP</div>
+    <div class="logo" id="logo6">Java</div>
+
+    <!-- SVG Lines -->
+    <svg id="lines"></svg>
+  </div>
+
+  <script>
+    const center = document.getElementById("center");
+    const logos = [
+      document.getElementById("logo1"),
+      document.getElementById("logo2"),
+      document.getElementById("logo3"),
+      document.getElementById("logo4"),
+      document.getElementById("logo5"),
+      document.getElementById("logo6"),
+    ];
+
+    const svg = document.getElementById("lines");
+
+    function drawLines() {
+      svg.innerHTML = "";
+      const centerBox = center.getBoundingClientRect();
+
+      logos.forEach((logo, i) => {
+        const logoBox = logo.getBoundingClientRect();
+
+        const x1 = centerBox.left + centerBox.width / 2 - svg.getBoundingClientRect().left;
+        const y1 = centerBox.top + centerBox.height / 2 - svg.getBoundingClientRect().top;
+
+        const x2 = logoBox.left + logoBox.width / 2 - svg.getBoundingClientRect().left;
+        const y2 = logoBox.top + logoBox.height / 2 - svg.getBoundingClientRect().top;
+
+        // Garis abu-abu dasar
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", x1);
+        line.setAttribute("y1", y1);
+        line.setAttribute("x2", x2);
+        line.setAttribute("y2", y2);
+        svg.appendChild(line);
+
+        // Cahaya biru
+        const glow = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        glow.setAttribute("x1", x1);
+        glow.setAttribute("y1", y1);
+        glow.setAttribute("x2", x2);
+        glow.setAttribute("y2", y2);
+        glow.classList.add("glow");
+
+        // Delay random
+        glow.style.animationDelay = `${Math.random() * 5}s`;
+        svg.appendChild(glow);
+      });
+    }
+
+    drawLines();
+    window.addEventListener("resize", drawLines);
+  </script>
 </body>
 </html>

@@ -109,29 +109,27 @@ responsive: true,
 
 
 
-//Skills Auto Scroll dan Manual Drag Mulai
+// Skills Auto Scroll dan Manual Drag Mulai
 
 const track = document.getElementById("scrollTrack");
 const firstContent = track.querySelector(".skills-content");
-
-// Panjang satu set
 const singleWidth = firstContent.getBoundingClientRect().width;
 
-// Clone satu kali
 track.appendChild(firstContent.cloneNode(true));
 
 let isDown = false;
 let startX;
 let scrollLeft;
 
-// ---- Drag manual (mouse) ----
 track.addEventListener("mousedown", (e) => {
   isDown = true;
   startX = e.pageX - track.offsetLeft;
   scrollLeft = track.scrollLeft;
   track.style.cursor = "grabbing";
 });
-track.addEventListener("mouseleave", () => { isDown = false; });
+track.addEventListener("mouseleave", () => { 
+  isDown = false; 
+});
 track.addEventListener("mouseup", () => {
   isDown = false;
   track.style.cursor = "grab";
@@ -144,7 +142,6 @@ track.addEventListener("mousemove", (e) => {
   track.scrollLeft = scrollLeft - walk;
 });
 
-// ---- Drag manual (touch) ----
 track.addEventListener("touchstart", (e) => {
   isDown = true;
   startX = e.touches[0].pageX - track.offsetLeft;
@@ -160,61 +157,26 @@ track.addEventListener("touchend", () => {
   isDown = false;
 });
 
-// ---- Auto scroll (pakai modulus biar 100% seamless) ----
+
 let speed = 1;
 
 function autoScroll() {
   track.scrollLeft = (track.scrollLeft + speed) % singleWidth;
   requestAnimationFrame(autoScroll);
 }
+track.addEventListener("mousedown", () => {
+  speed = 0;
+});
+track.addEventListener("mouseup", () => {
+  speed = 1;
+});
+track.addEventListener("touchstart", () => {
+  speed = 0;
+});
+track.addEventListener("touchend", () => {
+  speed = 1;
+});
 autoScroll();
 
 
 //Skills Auto Scroll dan Manual Drag Selesai
-
-
-
-
-
-// const track = document.getElementById("scrollTrack");
-// const content = track.querySelector(".skills-content");
-
-// while (track.scrollWidth < window.innerWidth * 3) {
-//   track.appendChild(content.cloneNode(true));
-// }
-
-// let isDown = false;
-// let startX;
-// let scrollLeft;
-
-// // ---- Drag manual ----
-// track.addEventListener("mousedown", (e) => {
-//   isDown = true;
-//   startX = e.pageX - track.offsetLeft;
-//   scrollLeft = track.scrollLeft;
-//   track.style.cursor = "grabbing";
-// });
-// track.addEventListener("mouseleave", () => { isDown = false; });
-// track.addEventListener("mouseup", () => {
-//   isDown = false;
-//   track.style.cursor = "grab";
-// });
-// track.addEventListener("mousemove", (e) => {
-//   if (!isDown) return;
-//   e.preventDefault();
-//   const x = e.pageX - track.offsetLeft;
-//   const walk = (x - startX) * 1.2; 
-//   track.scrollLeft = scrollLeft - walk;
-// });
-
-// // ---- Auto scroll ----
-// let speed = 1; // kecepatan scroll otomatis
-// function autoScroll() {
-//   track.scrollLeft += speed;
-//   // kalau sudah sampai clone → reset ke awal
-//   if (track.scrollLeft >= content.scrollWidth) {
-//     track.scrollLeft = 0;
-//   }
-//   requestAnimationFrame(autoScroll);
-// }
-// autoScroll();
