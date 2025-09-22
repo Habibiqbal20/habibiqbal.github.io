@@ -270,10 +270,11 @@ nav .main .menu-btn {
 .about .about-content {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 .about .about-content .header {
   color: #00e0ff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 2rem;
 }
 .about .about-content .text {
@@ -292,7 +293,7 @@ nav .main .menu-btn {
 .about .github .heading {
   color: #00e0ff;
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .about .github .content {
   display: flex;
@@ -443,7 +444,7 @@ nav .main .menu-btn {
   -webkit-mask-image: linear-gradient(to right, transparent, #1e1e2f 1%, #1e1e2f 99%, transparent);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
-  mask-image: linear-gradient(to right, transparent, #1e1e2f 1%, #1e1e2f 99%, transparent);
+  mask-image: linear-gradient(to right, transparent, #1e1e2f 10%, #1e1e2f 90%, transparent);
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
@@ -456,7 +457,7 @@ nav .main .menu-btn {
 }
 .about .skills .skills-content-container .skills-content .skills-card {
   width: 380px;
-  height: 150px;
+  height: 175px;
   border-radius: 10px;
   padding: 10px;
   background: rgb(50, 50, 80);
@@ -468,6 +469,20 @@ nav .main .menu-btn {
 .about .skills .skills-content-container .skills-content .skills-card .information {
   font-weight: 300;
   line-height: 1.2;
+}
+.about .skills .skills-content-container .skills-content .skills-card .information ul {
+  padding: 0 10px;
+}
+.about .skills .skills-content-container .skills-content .skills-card .information ul li {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  color: rgb(190, 190, 190);
+}
+.about .skills .skills-content-container .skills-content .skills-card .information ul li p {
+  font-size: 0.95rem;
+}
+.about .skills .skills-content-container .skills-content .skills-card .information ul li:hover {
+  color: #FFFFFF;
 }
 
 .timeline-heading {
@@ -494,15 +509,33 @@ nav .main .menu-btn {
   width: 100%;
   margin-bottom: 70px;
 }
-.timeline .timeline-item .timeline-content {
+.timeline .timeline-item a {
+  color: black;
+  text-decoration: none;
+}
+.timeline .timeline-item a .timeline-content {
   position: relative;
   width: 45%;
   padding: 10px 30px;
   border-radius: 4px;
   background: #f5f5f5;
   box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
+  transition: ease 0.3s;
+  cursor: pointer;
 }
-.timeline .timeline-item .timeline-content::after {
+.timeline .timeline-item a .timeline-content h2 {
+  margin-bottom: 10px;
+}
+.timeline .timeline-item a .timeline-content p {
+  color: #212121;
+}
+.timeline .timeline-item a .timeline-content p:nth-child(4) {
+  margin-bottom: 5px;
+}
+.timeline .timeline-item a .timeline-content:hover {
+  transform: perspective(200px) translateZ(10px);
+}
+.timeline .timeline-item a .timeline-content::after {
   content: "";
   position: absolute;
   border-style: solid;
@@ -817,4 +850,55 @@ nav .main .menu-btn {
     right: 122%;
     text-align: right;
   }
+}
+.projects {
+  padding: 0 10%;
+  text-align: center;
+}
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #00e0ff;
+}
+.projects .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.projects .grid .card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.projects .grid .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.projects .grid .card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.projects .grid .card .card-content {
+  padding: 20px;
+  text-align: left;
+}
+.projects .grid .card .card-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #222;
+}
+.projects .grid .card .card-content p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
