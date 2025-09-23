@@ -186,6 +186,7 @@ nav .main .menu-btn {
   font-size: 50px;
   font-weight: 700;
   margin: 10px 0;
+  white-space: nowrap;
 }
 .hero .container .hero-content h2 {
   font-size: 26px;
