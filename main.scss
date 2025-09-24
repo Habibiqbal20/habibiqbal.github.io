@@ -313,12 +313,14 @@ nav {
       max-height: 300px;
       //background: $primary-color;
       border-radius: 20px;
-      .card {
+      .profile-card {
         -webkit-filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
         filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
         position: relative;
         max-width: 400px;
         margin: auto;
+        //overflow: hidden;
+        transform-style: preserve-3d;
     
         .card__border {
           position: absolute;
@@ -357,7 +359,7 @@ nav {
           width: 92%;
           //margin-top: 4.8%;
           margin-left: 4%;
-        
+          transform-style: preserve-3d;
           .card__img {
             display: flex;
             padding: 0 1rem;
@@ -389,6 +391,7 @@ nav {
             .img__athlete {
               flex: 1 1 75%;
               padding-top: 8%;
+              
         
               img {
                 width: 120%;
@@ -402,6 +405,7 @@ nav {
           .card__text {
             position: relative;
             padding-bottom: 16%;
+            transform: translate3d(0, 0, 50px);
         
             &:before {
               content: '';
@@ -544,6 +548,7 @@ nav {
       p {
         font-weight: 100;
         line-height: 1.6;
+        font-size: 1.5rem;
       }
     }
   }

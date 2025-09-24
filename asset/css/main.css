@@ -239,14 +239,15 @@ nav .main .menu-btn {
   max-height: 300px;
   border-radius: 20px;
 }
-.hero .container .hero-image .card {
+.hero .container .hero-image .profile-card {
   -webkit-filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
   filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
   position: relative;
   max-width: 400px;
   margin: auto;
+  transform-style: preserve-3d;
 }
-.hero .container .hero-image .card .card__border {
+.hero .container .hero-image .profile-card .card__border {
   position: absolute;
   width: 98%;
   height: 102%;
@@ -254,7 +255,7 @@ nav .main .menu-btn {
   left: 1%;
   top: 1%;
 }
-.hero .container .hero-image .card .card__border-line {
+.hero .container .hero-image .profile-card .card__border-line {
   position: absolute;
   width: 95%;
   height: 99%;
@@ -263,30 +264,31 @@ nav .main .menu-btn {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(33%, hsl(42, 90%, 72%)), color-stop(70%, hsl(0, 0%, 0%)));
   background: linear-gradient(to bottom, hsl(42, 90%, 72%) 33%, hsl(0, 0%, 0%) 70%);
 }
-.hero .container .hero-image .card .card__border,
-.hero .container .hero-image .card .card__border-line,
-.hero .container .hero-image .card .card__inner {
+.hero .container .hero-image .profile-card .card__border,
+.hero .container .hero-image .profile-card .card__border-line,
+.hero .container .hero-image .profile-card .card__inner {
   -webkit-clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
   clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
 }
-.hero .container .hero-image .card .card__inner {
+.hero .container .hero-image .profile-card .card__inner {
   background: -webkit-linear-gradient(179deg, var(--color), #e3a83b 90%);
   background: linear-gradient(179deg, var(--color), #e3a83b 90%);
   padding: 0.5rem 0.2rem 0rem;
   width: 92%;
   margin-left: 4%;
+  transform-style: preserve-3d;
 }
-.hero .container .hero-image .card .card__inner .card__img {
+.hero .container .hero-image .profile-card .card__inner .card__img {
   display: flex;
   padding: 0 1rem;
   background: repeating-linear-gradient(126deg, hsla(0, 0%, 100%, 0.219) 0%, rgba(255, 255, 255, 0.3411764706) 1.2%, transparent 1.19%, transparent 4%, transparent 4.1%);
 }
 @media screen and (max-width: 550px) {
-  .hero .container .hero-image .card .card__inner .card__img {
+  .hero .container .hero-image .profile-card .card__inner .card__img {
     padding: 0 0.2rem;
   }
 }
-.hero .container .hero-image .card .card__inner .card__img .img__team {
+.hero .container .hero-image .profile-card .card__inner .card__img .img__team {
   flex: 1 1 30%;
   background: hsla(0, 0%, 0%, 0.82);
   display: flex;
@@ -294,25 +296,26 @@ nav .main .menu-btn {
   align-items: center;
   padding-top: 15%;
 }
-.hero .container .hero-image .card .card__inner .card__img .img__team img {
+.hero .container .hero-image .profile-card .card__inner .card__img .img__team img {
   width: 100%;
   vertical-align: middle;
 }
-.hero .container .hero-image .card .card__inner .card__img .img__athlete {
+.hero .container .hero-image .profile-card .card__inner .card__img .img__athlete {
   flex: 1 1 75%;
   padding-top: 8%;
 }
-.hero .container .hero-image .card .card__inner .card__img .img__athlete img {
+.hero .container .hero-image .profile-card .card__inner .card__img .img__athlete img {
   width: 120%;
   object-fit: cover;
   object-position: top;
   margin-left: -11%;
 }
-.hero .container .hero-image .card .card__inner .card__text {
+.hero .container .hero-image .profile-card .card__inner .card__text {
   position: relative;
   padding-bottom: 16%;
+  transform: translate3d(0, 0, 50px);
 }
-.hero .container .hero-image .card .card__inner .card__text:before {
+.hero .container .hero-image .profile-card .card__inner .card__text:before {
   content: "";
   position: absolute;
   left: 0;
@@ -324,7 +327,7 @@ nav .main .menu-btn {
   opacity: 0.3;
   z-index: -1;
 }
-.hero .container .hero-image .card .card__inner .card__text .card__type {
+.hero .container .hero-image .profile-card .card__inner .card__text .card__type {
   width: 50%;
   width: min-content;
   margin: auto;
@@ -336,16 +339,16 @@ nav .main .menu-btn {
   margin-top: -6%;
 }
 @media screen and (max-width: 500px) {
-  .hero .container .hero-image .card .card__inner .card__text .card__type {
+  .hero .container .hero-image .profile-card .card__inner .card__text .card__type {
     font-size: min(1.2rem, 5vw);
   }
 }
-.hero .container .hero-image .card .card__inner .card__text .name {
+.hero .container .hero-image .profile-card .card__inner .card__text .name {
   font-size: 1.8rem;
   margin: 2% 0 0;
   position: relative;
 }
-.hero .container .hero-image .card .card__inner .card__text .name:before {
+.hero .container .hero-image .profile-card .card__inner .card__text .name:before {
   content: "";
   background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(55, 48, 48, 0.3607843137)), color-stop(black), color-stop(rgba(0, 0, 0, 0.3098039216)), to(transparent));
   background: linear-gradient(to right, transparent, rgba(55, 48, 48, 0.3607843137), black, rgba(0, 0, 0, 0.3098039216), transparent);
@@ -356,16 +359,16 @@ nav .main .menu-btn {
   height: 5%;
 }
 @media screen and (max-width: 500px) {
-  .hero .container .hero-image .card .card__inner .card__text .name {
+  .hero .container .hero-image .profile-card .card__inner .card__text .name {
     font-size: min(10vw, 2.5rem);
   }
 }
-.hero .container .hero-image .card .card__inner .card__text .points {
+.hero .container .hero-image .profile-card .card__inner .card__text .points {
   font-size: 2.5rem;
   margin: 0rem 0 10%;
   position: relative;
 }
-.hero .container .hero-image .card .card__inner .card__text .points:before {
+.hero .container .hero-image .profile-card .card__inner .card__text .points:before {
   content: "";
   position: absolute;
   left: 50%;
@@ -376,7 +379,7 @@ nav .main .menu-btn {
   background: black;
 }
 @media screen and (max-width: 500px) {
-  .hero .container .hero-image .card .card__inner .card__text .points {
+  .hero .container .hero-image .profile-card .card__inner .card__text .points {
     font-size: min(12vw, 2.8rem);
   }
 }
@@ -426,6 +429,7 @@ nav .main .menu-btn {
 .about .about-content .text p {
   font-weight: 100;
   line-height: 1.6;
+  font-size: 1.5rem;
 }
 .about .github {
   margin-top: 20px;
