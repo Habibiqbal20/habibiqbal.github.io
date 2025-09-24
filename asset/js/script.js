@@ -1,6 +1,6 @@
 //Typing Effect Mulai
 
-const texts = ["Web Developer", "Video/Photo Editor", "Office Administrator", "Freelancer"];
+const texts = ["Web Developer", "Video/Photo Editor", "Office Administrator", "Digital Marketing", "Others"];
 
 let count = 0;        // index kata di array texts
 let index = 0;        // panjang substring yang ditampilkan saat ini
@@ -100,7 +100,7 @@ document.addEventListener("mouseleave", () => {
 // Github Contributor Mulai
 
 GitHubCalendar(".calendar", "Habibiqbal20", {
-responsive: true,
+  responsive: true,
 });
 
 // Github Contributor Selesai
@@ -127,8 +127,8 @@ track.addEventListener("mousedown", (e) => {
   scrollLeft = track.scrollLeft;
   track.style.cursor = "grabbing";
 });
-track.addEventListener("mouseleave", () => { 
-  isDown = false; 
+track.addEventListener("mouseleave", () => {
+  isDown = false;
 });
 track.addEventListener("mouseup", () => {
   isDown = false;
@@ -138,7 +138,7 @@ track.addEventListener("mousemove", (e) => {
   if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - track.offsetLeft;
-  const walk = (x - startX) * 1.2; 
+  const walk = (x - startX) * 1.2;
   track.scrollLeft = scrollLeft - walk;
 });
 
@@ -180,3 +180,15 @@ autoScroll();
 
 
 //Skills Auto Scroll dan Manual Drag Selesai
+
+
+// CV Download Mulai
+
+document.getElementById("downloadBtn").addEventListener("click", function () {
+  const link = document.createElement("a");
+  link.href = "asset/New CV.pdf";   // path file CV
+  link.download = "Curriculum Vitae Habib Iqbal.pdf"; // nama file saat didownload
+  link.click();
+});
+
+// CV Download Selesai
