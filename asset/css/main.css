@@ -641,6 +641,7 @@ nav .main .menu-btn {
 .timeline {
   position: relative;
   padding: 0 40px;
+  overflow: hidden;
 }
 .timeline::before {
   content: "";
@@ -740,7 +741,7 @@ nav .main .menu-btn {
   }
   .timeline .timeline-content {
     max-width: 100%;
-    width: fit-content !important;
+    width: 90% !important;
     margin-left: 50px;
   }
   .timeline .timeline-item:nth-child(even) .timeline-content {

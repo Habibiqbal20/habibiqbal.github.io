@@ -218,10 +218,10 @@
     </div>
   </section>
   <section class="timeline">
-    <div class="container">
-      <div class="timeline-item bina-karya">
+    <div class="container education-section">
+      <div class="timeline-item">
         <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-content js--fadeInLeft bina-karya">
           <a href="https://maps.app.goo.gl/UEHebYC8fWGBJacs8">
             <h2>STIE BINA KARYA</h2>
           </a>
@@ -230,9 +230,9 @@
           <P>Average Value : 3.7</P>
         </div>
       </div>
-      <div class="timeline-item sma">
+      <div class="timeline-item">
         <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-content js--fadeInLeft sma">
           <a href="https://maps.app.goo.gl/ZLrjBMjs7AG5Zs6U7">
             <h2>SMA NEGERI 1 DOLOK BATU NANGGAR</h2>
           </a>
@@ -241,9 +241,9 @@
           <P>Average Value : 8.5</P>
         </div>
       </div>
-      <div class="timeline-item smp">
+      <div class="timeline-item">
         <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-content js--fadeInLeft smp">
           <a href="https://maps.app.goo.gl/YYPVnFmUVe9CeazQ7">
             <h2>SMP NEGERI 1 DOLOK BATU NANGGAR</h2>
           </a>
@@ -252,9 +252,9 @@
           <P>Average Value : 80</P>
         </div>
       </div>
-      <div class="timeline-item sd">
+      <div class="timeline-item">
         <div class="timeline-img"></div>
-        <div class="timeline-content js--fadeInLeft">
+        <div class="timeline-content js--fadeInLeft sd">
           <a href="https://maps.app.goo.gl/K4dx1wpnnguy9ohq5">
             <h2>SD NEGERI 091600</h2>
           </a>
@@ -317,8 +317,111 @@
   </section>
   <script src="asset/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EaselPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/PixiPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <!-- ScrollSmoother requires ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+  <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EasePack.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.3/vanilla-tilt.min.js"></script>
   <script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(Draggable, EaselPlugin, Flip, Observer, PixiPlugin, ScrambleTextPlugin, ScrollTrigger, ScrollSmoother, SplitText, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase)
+
+      gsap.from("nav", {
+        opacity: 0, y: -100, duration: 1
+      });
+
+      gsap.from(".profile-card", {
+        delay: 0.6,
+        opacity: 0,
+        duration: 2.5,
+        ease: "bounce.out",
+        y: -100
+      });
+
+      gsap.from(".hero-content", {
+        delay: 0.6,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out",
+        y: -100
+      });
+
+      gsap.from(".social-icons", {
+        delay: 1,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out",
+        y: -100
+      });
+
+
+      gsap.from('.bina-karya', {
+        scrollTrigger: {
+          trigger: '.bina-karya',
+          toggleActions: 'play pause resume none',
+        },
+        x: -300,
+        opacity: 0,
+        duration: 1.5
+      });
+      gsap.from('.sma', {
+        scrollTrigger: {
+          trigger: '.sma',
+          toggleActions: 'play pause resume none',
+        },
+        x: 300,
+        opacity: 0,
+        duration: 1.5
+      });
+      gsap.from('.smp', {
+        scrollTrigger: {
+          trigger: '.smp',
+          toggleActions: 'play pause resume none',
+        },
+        x: -300,
+        opacity: 0,
+        duration: 1.5
+      });
+      gsap.from('.sd', {
+        scrollTrigger: {
+          trigger: '.sd',
+          toggleActions: 'play pause resume none',
+        },
+        x: 300,
+        opacity: 0,
+        duration: 1.5
+      });
+      // let tl = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: ".education-section",
+      //     start: "20px",
+      //     end: "20px",
+      //     toggleActions: "play none none reverse"
+      //   },
+      //   defaults: {
+      //     opacity: 0,
+      //     duration: 1.2,
+      //     ease: "power2.out"
+      //   }
+      // });
+
+      // tl.from(".bina-karya", { x: -300 })
+      //   .from(".sma", { x: 300 })
+      //   .from(".smp", { x: -300 })
+      //   .from(".sd", { x: 300 });
+    });
     VanillaTilt.init(document.querySelector(".profile-card"), {
       max: 30,
       speed: 400,
@@ -331,32 +434,6 @@
       glare: true,
       reverse: true
     });
-
-    gsap.from("nav", {
-      opacity: 0, y: -100, duration: 1
-    });
-
-    gsap.from(".profile-card", {
-      delay: 0.6,
-      opacity: 0,
-      duration: 2.5,
-      ease: "bounce.out",
-      y: -100
-    });
-
-    gsap.from(".hero-content", {
-      delay: 0.6,
-      opacity: 0,
-      duration: 1,
-      ease: "back.out",
-      y: -100
-    });
-
-    // var tl = gsap.timeline({ defaults: { duration: 0.2, ease: "power4.out", y: 200}});
-    // tl.to(".fb", { delay: 0.2 })
-    //   .to(".x", { delay: 0.3 })
-    //   .to(".ig", { delay: 0.4 })
-    //   .to(".LI", { delay: 0.5 });
   </script>
 
 </body>

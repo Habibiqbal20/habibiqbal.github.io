@@ -837,6 +837,7 @@ nav {
 .timeline {
   position: relative;
   padding: 0 40px;
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -951,7 +952,7 @@ nav {
 
     .timeline-content {
       max-width: 100%;
-      width: fit-content !important;
+      width: 90% !important;
       margin-left: 50px;
     }
 
