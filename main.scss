@@ -507,6 +507,7 @@ nav {
   .container {
     flex-direction: column;
     text-align: center;
+    margin-bottom: 50px;
 
     .hero-image {
       margin-top: 30px;
@@ -1282,14 +1283,15 @@ nav {
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px $shadow;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.3s ease;
       display: flex;
       flex-direction: column;
       cursor: pointer;
-
+      max-height: 300px;
       &:hover {
         transform: translateY(-6px);
         box-shadow: 0 8px 20px $shadow-hover;
+        max-height: 100%;
       }
 
       img {

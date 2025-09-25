@@ -192,3 +192,127 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
 });
 
 // CV Download Selesai
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(Draggable, EaselPlugin, Flip, Observer, PixiPlugin, ScrambleTextPlugin, ScrollTrigger, ScrollSmoother, SplitText, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase)
+
+  gsap.from("nav", {
+    opacity: 0, y: -100, duration: 1
+  });
+
+  gsap.from(".profile-card", {
+    delay: 0.6,
+    opacity: 0,
+    duration: 2.5,
+    ease: "back.out",
+    y: -100,
+    onComplete: () => {
+      gsap.to('.profile-card', {
+        y: -20,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+    }
+  });
+
+  gsap.from(".hero-content", {
+    delay: 0.6,
+    opacity: 0,
+    duration: 1,
+    ease: "back.out",
+    y: -100
+  });
+
+  gsap.from(".social-icons", {
+    delay: 1,
+    opacity: 0,
+    duration: 1,
+    ease: "back.out",
+    y: -100
+  });
+
+  document.fonts.ready.then(() => {
+    gsap.set(".split", { opacity: 1 });
+
+    let split;
+    SplitText.create(".split", {
+      type: "words,lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: "lines",
+      onSplit: (self) => {
+        split = gsap.from(self.lines, {
+          scrollTrigger: {
+            trigger: '.split',
+            top: 'top 80%',
+            toggleActions: 'play pause resume none'
+          },
+          duration: 1,
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.4,
+          ease: "expo.out",
+        });
+        return split;
+      }
+    });
+  });
+
+  gsap.from('.bina-karya', {
+    scrollTrigger: {
+      trigger: '.bina-karya',
+      toggleActions: 'play pause resume none',
+    },
+    x: -300,
+    opacity: 0,
+    duration: 1.5
+  });
+
+  gsap.from('.sma', {
+    scrollTrigger: {
+      trigger: '.sma',
+      toggleActions: 'play pause resume none',
+    },
+    x: 300,
+    opacity: 0,
+    duration: 1.5
+  });
+
+  gsap.from('.smp', {
+    scrollTrigger: {
+      trigger: '.smp',
+      toggleActions: 'play pause resume none',
+    },
+    x: -300,
+    opacity: 0,
+    duration: 1.5
+  });
+
+  gsap.from('.sd', {
+    scrollTrigger: {
+      trigger: '.sd',
+      toggleActions: 'play pause resume none',
+    },
+    x: 300,
+    opacity: 0,
+    duration: 1.5
+  });
+});
+
+VanillaTilt.init(document.querySelector(".profile-card"), {
+  max: 30,
+  speed: 400,
+  reverse: true,
+  gyroscope: false,
+  // glare: true
+});
+VanillaTilt.init(document.querySelector(".card__inner"), {
+  max: 0,
+  speed: 400,
+  glare: true,
+  reverse: true,
+  gyroscope: false,
+});

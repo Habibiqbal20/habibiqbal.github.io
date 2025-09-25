@@ -392,6 +392,7 @@ nav .main .menu-btn {
   .container {
     flex-direction: column;
     text-align: center;
+    margin-bottom: 50px;
   }
   .container .hero-image {
     margin-top: 30px;
@@ -1022,14 +1023,16 @@ nav .main .menu-btn {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.3s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  max-height: 300px;
 }
 .projects .grid .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-height: 100%;
 }
 .projects .grid .card img {
   width: 100%;
