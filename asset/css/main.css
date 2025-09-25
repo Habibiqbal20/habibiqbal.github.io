@@ -1027,7 +1027,7 @@ nav .main .menu-btn {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  max-height: 300px;
+  max-height: 83%;
 }
 .projects .grid .card:hover {
   transform: translateY(-6px);

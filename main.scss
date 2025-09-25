@@ -1287,7 +1287,7 @@ nav {
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      max-height: 300px;
+      max-height: 83%;
       &:hover {
         transform: translateY(-6px);
         box-shadow: 0 8px 20px $shadow-hover;
