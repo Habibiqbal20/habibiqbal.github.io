@@ -24,6 +24,9 @@ $contact-text: #f9f9f9;
 $contact-primary: #00e0ff;
 $contact-shadow: rgba(0, 0, 0, 0.15);
 $contact-shadow-hover: rgba(0, 224, 255, 0.4);
+$footer-bg: #1e1e2f;
+$footer-text: #ddd;
+$footer-accent: #00e0ff;
 
 
 /* ===== RESET ===== */
@@ -313,6 +316,7 @@ nav {
       max-height: 300px;
       //background: $primary-color;
       border-radius: 20px;
+
       .profile-card {
         -webkit-filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
         filter: drop-shadow(0px 0px 5px var(--color)) drop-shadow(0px 0px 15px var(--color));
@@ -321,7 +325,7 @@ nav {
         margin: auto;
         //overflow: hidden;
         transform-style: preserve-3d;
-    
+
         .card__border {
           position: absolute;
           width: 98%;
@@ -330,7 +334,7 @@ nav {
           left: 1%;
           top: 1%;
         }
-        
+
         .card__border-line {
           position: absolute;
           width: 95%;
@@ -345,13 +349,14 @@ nav {
               hsl(42, 90%, 72%) 33%,
               hsl(0, 0%, 0%) 70%);
         }
-    
+
         .card__border,
         .card__border-line,
         .card__inner {
           -webkit-clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
           clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
         }
+
         .card__inner {
           background: -webkit-linear-gradient(179deg, var(--color), #e3a83b 90%);
           background: linear-gradient(179deg, var(--color), #e3a83b 90%);
@@ -360,6 +365,7 @@ nav {
           //margin-top: 4.8%;
           margin-left: 4%;
           transform-style: preserve-3d;
+
           .card__img {
             display: flex;
             padding: 0 1rem;
@@ -369,11 +375,11 @@ nav {
                 transparent 1.19%,
                 transparent 4%,
                 transparent 4.1%);
-        
+
             @media screen and (max-width: 550px) {
               padding: 0 .2rem;
             }
-        
+
             .img__team {
               flex: 1 1 30%;
               background: hsla(0, 0%, 0%, 0.82);
@@ -381,18 +387,18 @@ nav {
               padding: 0.3rem;
               align-items: center;
               padding-top: 15%;
-        
+
               img {
                 width: 100%;
                 vertical-align: middle;
               }
             }
-        
+
             .img__athlete {
               flex: 1 1 75%;
               padding-top: 8%;
-              
-        
+
+
               img {
                 width: 120%;
                 object-fit: cover;
@@ -401,12 +407,12 @@ nav {
               }
             }
           }
-        
+
           .card__text {
             position: relative;
             padding-bottom: 16%;
             transform: translate3d(0, 0, 50px);
-        
+
             &:before {
               content: '';
               position: absolute;
@@ -419,7 +425,7 @@ nav {
               opacity: 0.3;
               z-index: -1;
             }
-        
+
             .card__type {
               width: 50%;
               width: min-content;
@@ -430,17 +436,17 @@ nav {
               color: var(--text-color);
               font-size: 1.5rem;
               margin-top: -6%;
-        
+
               @media screen and (max-width: 500px) {
                 font-size: min(1.2rem, 5vw);
               }
             }
-        
+
             .name {
               font-size: 1.8rem;
               margin: 2% 0 0;
               position: relative;
-        
+
               // Gradient border below the player name
               &:before {
                 content: '';
@@ -463,17 +469,17 @@ nav {
                 bottom: 0;
                 height: 5%;
               }
-        
+
               @media screen and (max-width: 500px) {
                 font-size: min(10vw, 2.5rem);
               }
             }
-        
+
             .points {
               font-size: 2.5rem;
               margin: 0rem 0 10%;
               position: relative;
-        
+
               &:before {
                 content: "";
                 position: absolute;
@@ -483,9 +489,9 @@ nav {
                 width: 25%;
                 height: 5%;
                 background: black;
-        
+
               }
-        
+
               @media screen and (max-width: 500px) {
                 font-size: min(12vw, 2.8rem);
               }
@@ -522,6 +528,8 @@ nav {
   }
 }
 
+
+// ABOUT MULAI
 .about {
   //background: #2f2f49;
   padding: 90px 40px;
@@ -553,6 +561,10 @@ nav {
       }
     }
   }
+
+
+
+  // GITHUB MULAI
 
   .github {
     margin-top: 20px;
@@ -732,8 +744,12 @@ nav {
         }
       }
     }
-
   }
+
+  // GITHUB SELESAI
+
+
+  // SKILL CARD MULAI
 
   .skills {
     width: 100%;
@@ -823,6 +839,9 @@ nav {
   }
 }
 
+// SKILL CARD SELESAI
+// ABOUT SELESAI
+
 
 
 
@@ -862,19 +881,24 @@ nav {
       background: #f5f5f5;
       box-shadow: 0 20px 25px -15px rgba(0, 0, 0, .3);
       transition: ease 0.3s;
-      cursor: pointer;
+
+      //cursor: pointer;
       a {
         color: black;
         text-decoration: none;
+
         &:hover {
           text-decoration: underline;
         }
+
         h2 {
           margin-bottom: 10px;
         }
       }
+
       p {
         color: $primary-text;
+
         &:nth-child(4) {
           margin-bottom: 5px;
         }
@@ -991,279 +1015,13 @@ nav {
 
 
 
-// TIMELINE PROJECT MULAI
-
-.cd-container {
-  width: 90%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 10%;
-  border-radius: 2px;
-}
-
-.cd-container::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-#cd-timeline {
-  position: relative;
-  padding: 2em 0;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-#cd-timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 25px;
-  height: 100%;
-  width: 4px;
-  background: #7E57C2;
-}
-
-@media only screen and (min-width: 1170px) {
-  #cd-timeline {
-    margin-top: 3em;
-    margin-bottom: 3em;
-  }
-
-  #cd-timeline::before {
-    left: 50%;
-    margin-left: -2px;
-  }
-}
-
-.cd-timeline-block {
-  position: relative;
-  margin: 2em 0;
-}
-
-.cd-timeline-block:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.cd-timeline-block:first-child {
-  margin-top: 0;
-}
-
-.cd-timeline-block:last-child {
-  margin-bottom: 0;
-}
-
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-block {
-    margin: 4em 0;
-  }
-
-  .cd-timeline-block:first-child {
-    margin-top: 0;
-  }
-
-  .cd-timeline-block:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.cd-timeline-img {
-  position: absolute;
-  top: 8px;
-  left: 12px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px #7E57C2, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-}
-
-.cd-timeline-img {
-  background: #673AB7;
-}
-
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-img {
-    width: 30px;
-    height: 30px;
-    left: 50%;
-    margin-left: -15px;
-    margin-top: 15px;
-    /* Force Hardware Acceleration in WebKit */
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-  }
-}
-
-.cd-timeline-content {
-  position: relative;
-  margin-left: 60px;
-  margin-right: 30px;
-  background: #333C42;
-  border-radius: 2px;
-  padding: 1em;
-
-  .timeline-content-info {
-    background: #2B343A;
-    padding: 5px 10px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
-    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.08);
-    border-radius: 2px;
-
-    i {
-      margin-right: 5px;
-    }
-
-    .timeline-content-info-title,
-    .timeline-content-info-date {
-      width: calc(50% - 2px);
-      display: inline-block;
-    }
-
-    @media (max-width: 500px) {
-
-      .timeline-content-info-title,
-      .timeline-content-info-date {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-
-  .content-skills {
-    font-size: 12px;
-    padding: 0;
-    margin-bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      background: #40484D;
-      border-radius: 2px;
-      display: inline-block;
-      padding: 2px 10px;
-      color: rgba(255, 255, 255, 0.7);
-      margin: 3px 2px;
-      text-align: center;
-      flex-grow: 1;
-    }
-  }
-}
-
-.cd-timeline-content:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.cd-timeline-content h2 {
-  color: rgba(255, 255, 255, .9);
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
-.cd-timeline-content p,
-.cd-timeline-content .cd-date {
-  color: rgba(255, 255, 255, .7);
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-
-.cd-timeline-content .cd-date {
-  display: inline-block;
-}
-
-.cd-timeline-content p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
-
-.cd-timeline-content::before {
-  content: '';
-  position: absolute;
-  top: 16px;
-  right: 100%;
-  height: 0;
-  width: 0;
-  border: 7px solid transparent;
-  border-right: 7px solid #333C42;
-}
-
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
-  }
-
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
-  }
-
-  .cd-timeline-content .cd-read-more,
-  .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
-}
-
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-content {
-    color: white;
-    margin-left: 0;
-    padding: 1.6em;
-    width: 36%;
-    margin: 0 5%
-  }
-
-  .cd-timeline-content::before {
-    top: 24px;
-    left: 100%;
-    border-color: transparent;
-    border-left-color: #333C42;
-  }
-
-  .cd-timeline-content .cd-date {
-    position: absolute;
-    width: 100%;
-    left: 122%;
-    top: 6px;
-    font-size: 16px;
-    font-size: 1rem;
-  }
-
-  .cd-timeline-block:nth-child(even) .cd-timeline-content {
-    float: right;
-  }
-
-  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
-    top: 24px;
-    left: auto;
-    right: 100%;
-    border-color: transparent;
-    border-right-color: #333C42;
-  }
-
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
-    float: right;
-  }
-
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
-    left: auto;
-    right: 122%;
-    text-align: right;
-  }
-}
-
-// TIMELINE PROJECT SELESAI
-
+// CARD PROJECT MULAI
 
 .projects {
   padding: 0 10%;
   text-align: center;
+  margin-top: 80px;
+  overflow-x: hidden;
 
   h2 {
     font-size: 2rem;
@@ -1287,7 +1045,8 @@ nav {
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      max-height: 83%;
+      max-height: 82%;
+
       &:hover {
         transform: translateY(-6px);
         box-shadow: 0 8px 20px $shadow-hover;
@@ -1322,9 +1081,14 @@ nav {
   }
 }
 
+// CARD PROJECT SELESAI
+
+
+// CONTACT MULAI
 .contact {
   padding: 0 10%;
-  margin-top: 60px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   padding-bottom: 50px;
   //background: $contact-bg;
   color: $contact-text;
@@ -1347,6 +1111,7 @@ nav {
     margin-bottom: 30px;
 
     .form-group {
+
       input,
       textarea {
         width: 100%;
@@ -1403,6 +1168,83 @@ nav {
   }
 }
 
+// CONTACT SELESAI
+
+
+// FOOTER MULAI
+
+.footer {
+  // background: $footer-bg;
+  background: darken($footer-bg, 5%);
+  color: $footer-text;
+  font-family: 'Poppins', sans-serif;
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2, h3 {
+    color: $footer-accent;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand {
+    p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  .footer-nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin: 0.5rem 0;
+        a {
+          color: $footer-text;
+          text-decoration: none;
+          transition: color 0.3s ease;
+          &:hover {
+            color: $footer-accent;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    .footer-social-icons {
+      display: flex;
+      gap: 1rem;
+      a {
+        color: $footer-text;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+        &:hover {
+          color: $footer-accent;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+    background: darken($footer-bg, 5%);
+  }
+}
+
+
+// FOOTER SELESAI
+
 
 // .card-list {
 //   text-align: center;
@@ -1410,3 +1252,272 @@ nav {
 //   text-transform: uppercase;
 
 // }
+
+// TIMELINE PROJECT MULAI
+
+// .cd-container {
+//   width: 90%;
+//   max-width: 1080px;
+//   margin: 0 auto;
+//   padding: 0 10%;
+//   border-radius: 2px;
+// }
+
+// .cd-container::after {
+//   content: '';
+//   display: table;
+//   clear: both;
+// }
+
+// #cd-timeline {
+//   position: relative;
+//   padding: 2em 0;
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// #cd-timeline::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 25px;
+//   height: 100%;
+//   width: 4px;
+//   background: #7E57C2;
+// }
+
+// @media only screen and (min-width: 1170px) {
+//   #cd-timeline {
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   #cd-timeline::before {
+//     left: 50%;
+//     margin-left: -2px;
+//   }
+// }
+
+// .cd-timeline-block {
+//   position: relative;
+//   margin: 2em 0;
+// }
+
+// .cd-timeline-block:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+// .cd-timeline-block:first-child {
+//   margin-top: 0;
+// }
+
+// .cd-timeline-block:last-child {
+//   margin-bottom: 0;
+// }
+
+// @media only screen and (min-width: 1170px) {
+//   .cd-timeline-block {
+//     margin: 4em 0;
+//   }
+
+//   .cd-timeline-block:first-child {
+//     margin-top: 0;
+//   }
+
+//   .cd-timeline-block:last-child {
+//     margin-bottom: 0;
+//   }
+// }
+
+// .cd-timeline-img {
+//   position: absolute;
+//   top: 8px;
+//   left: 12px;
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50%;
+//   box-shadow: 0 0 0 4px #7E57C2, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+// }
+
+// .cd-timeline-img {
+//   background: #673AB7;
+// }
+
+// @media only screen and (min-width: 1170px) {
+//   .cd-timeline-img {
+//     width: 30px;
+//     height: 30px;
+//     left: 50%;
+//     margin-left: -15px;
+//     margin-top: 15px;
+//     /* Force Hardware Acceleration in WebKit */
+//     -webkit-transform: translateZ(0);
+//     -webkit-backface-visibility: hidden;
+//   }
+// }
+
+// .cd-timeline-content {
+//   position: relative;
+//   margin-left: 60px;
+//   margin-right: 30px;
+//   background: #333C42;
+//   border-radius: 2px;
+//   padding: 1em;
+
+//   .timeline-content-info {
+//     background: #2B343A;
+//     padding: 5px 10px;
+//     color: rgba(255, 255, 255, 0.7);
+//     font-size: 12px;
+//     box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.08);
+//     border-radius: 2px;
+
+//     i {
+//       margin-right: 5px;
+//     }
+
+//     .timeline-content-info-title,
+//     .timeline-content-info-date {
+//       width: calc(50% - 2px);
+//       display: inline-block;
+//     }
+
+//     @media (max-width: 500px) {
+
+//       .timeline-content-info-title,
+//       .timeline-content-info-date {
+//         display: block;
+//         width: 100%;
+//       }
+//     }
+//   }
+
+//   // .content-skills {
+//   //   font-size: 12px;
+//   //   padding: 0;
+//   //   margin-bottom: 0;
+//   //   display: flex;
+//   //   flex-wrap: wrap;
+//   //   justify-content: center;
+
+//   //   li {
+//   //     background: #40484D;
+//   //     border-radius: 2px;
+//   //     display: inline-block;
+//   //     padding: 2px 10px;
+//   //     color: rgba(255, 255, 255, 0.7);
+//   //     margin: 3px 2px;
+//   //     text-align: center;
+//   //     flex-grow: 1;
+//   //   }
+//   // }
+// }
+
+// .cd-timeline-content:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+// .cd-timeline-content h2 {
+//   color: rgba(255, 255, 255, .9);
+//   margin-top: 0;
+//   margin-bottom: 5px;
+// }
+
+// .cd-timeline-content p,
+// .cd-timeline-content .cd-date {
+//   color: rgba(255, 255, 255, .7);
+//   font-size: 13px;
+//   font-size: 0.8125rem;
+// }
+
+// .cd-timeline-content .cd-date {
+//   display: inline-block;
+// }
+
+// .cd-timeline-content p {
+//   margin: 1em 0;
+//   line-height: 1.6;
+// }
+
+// .cd-timeline-content::before {
+//   content: '';
+//   position: absolute;
+//   top: 16px;
+//   right: 100%;
+//   height: 0;
+//   width: 0;
+//   border: 7px solid transparent;
+//   border-right: 7px solid #333C42;
+// }
+
+// @media only screen and (min-width: 768px) {
+//   .cd-timeline-content h2 {
+//     font-size: 20px;
+//     font-size: 1.25rem;
+//   }
+
+//   .cd-timeline-content p {
+//     font-size: 16px;
+//     font-size: 1rem;
+//   }
+
+//   .cd-timeline-content .cd-read-more,
+//   .cd-timeline-content .cd-date {
+//     font-size: 14px;
+//     font-size: 0.875rem;
+//   }
+// }
+
+// @media only screen and (min-width: 1170px) {
+//   .cd-timeline-content {
+//     color: white;
+//     margin-left: 0;
+//     padding: 1.6em;
+//     width: 36%;
+//     margin: 0 5%
+//   }
+
+//   .cd-timeline-content::before {
+//     top: 24px;
+//     left: 100%;
+//     border-color: transparent;
+//     border-left-color: #333C42;
+//   }
+
+//   .cd-timeline-content .cd-date {
+//     position: absolute;
+//     width: 100%;
+//     left: 122%;
+//     top: 6px;
+//     font-size: 16px;
+//     font-size: 1rem;
+//   }
+
+//   .cd-timeline-block:nth-child(even) .cd-timeline-content {
+//     float: right;
+//   }
+
+//   .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+//     top: 24px;
+//     left: auto;
+//     right: 100%;
+//     border-color: transparent;
+//     border-right-color: #333C42;
+//   }
+
+//   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+//     float: right;
+//   }
+
+//   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+//     left: auto;
+//     right: 122%;
+//     text-align: right;
+//   }
+// }
+
+// TIMELINE PENDIDIKAN SELESAI

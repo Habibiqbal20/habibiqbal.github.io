@@ -107,8 +107,6 @@ GitHubCalendar(".calendar", "Habibiqbal20", {
 
 
 
-
-
 // Skills Auto Scroll dan Manual Drag Mulai
 
 const track = document.getElementById("scrollTrack");
@@ -265,6 +263,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: '.bina-karya',
       toggleActions: 'play pause resume none',
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
     },
     x: -300,
     opacity: 0,
@@ -275,6 +276,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: '.sma',
       toggleActions: 'play pause resume none',
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
     },
     x: 300,
     opacity: 0,
@@ -285,6 +289,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: '.smp',
       toggleActions: 'play pause resume none',
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
     },
     x: -300,
     opacity: 0,
@@ -295,12 +302,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: '.sd',
       toggleActions: 'play pause resume none',
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
     },
     x: 300,
     opacity: 0,
     duration: 1.5
   });
 });
+
+gsap.utils.toArray(".card").forEach((card, i) => {
+  gsap.fromTo(card,
+    {
+      x: i % 2 === 0 ? -300 : 300,
+      opacity: 0
+    },
+    {
+      x: 0,
+      opacity: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+        //markers: true,
+      }
+    }
+  );
+});
+
 
 VanillaTilt.init(document.querySelector(".profile-card"), {
   max: 30,
