@@ -241,6 +241,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     y: -100
   });
 
+  gsap.from(".About-me", {
+    //duration: 0.5,
+    // scrambleText : {
+    //   text: "About Us",
+    //   chars: "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    //   speed: 0.1
+    // },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.About-me',
+      once: true
+    }
+  });
+
   document.fonts.ready.then(() => {
     gsap.set(".split", { opacity: 1 });
 
@@ -281,14 +297,21 @@ gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
       ease: "none",
       scrollTrigger: {
         trigger: myEdu,
-        start: "top 100%",
-        end: "top 55%",
+        start: "top 90%",
+        end: "top 70%",
         scrub: true,
         //markers: true,
       }
     }
   );
+  myEdu.addEventListener("mouseenter", () => {
+    gsap.to(myEdu, { y: -10, duration: 0.2, ease: "power2.out" });
+  });
+  myEdu.addEventListener("mouseleave", () => {
+    gsap.to(myEdu, { y: 1, duration: 0.2, ease: "power2.out" });
+  });
 });
+
 
 gsap.utils.toArray(".card").forEach((card, i) => {
   gsap.fromTo(card,
@@ -385,4 +408,43 @@ VanillaTilt.init(document.querySelector(".card__inner"), {
 //   x: 300,
 //   opacity: 0,
 //   duration: 1.5
+// });
+
+// function scrambleText(element, newText, duration = 1) {
+//   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
+//   const length = newText.length;
+//   let frame = 0;
+//   const totalFrames = duration * 60; // 60fps
+
+//   const interval = setInterval(() => {
+//     let output = "";
+
+//     for (let i = 0; i < length; i++) {
+//       if (i < (frame / totalFrames) * length) {
+//         output += newText[i];
+//       } else {
+//         output += chars[Math.floor(Math.random() * chars.length)];
+//       }
+//     }
+
+//     element.textContent = output;
+//     frame++;
+
+//     if (frame >= totalFrames) {
+//       clearInterval(interval);
+//       element.textContent = newText;
+//     }
+//   }, 1000 / 60);
+// }
+
+// gsap.utils.toArray(".About-me").forEach(text => {
+//   const originalText = text.textContent;
+
+//   ScrollTrigger.create({
+//     trigger: text,
+//     //start: "top 80%",
+//     //markers: true,
+//     onEnter: () => scrambleText(text, originalText),
+//     once: true
+//   });
 // });
