@@ -763,7 +763,7 @@ nav .main .menu-btn {
   padding: 0 10%;
   text-align: center;
   margin-top: 80px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .projects h2 {
   font-size: 2rem;

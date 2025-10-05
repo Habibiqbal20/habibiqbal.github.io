@@ -1,5 +1,7 @@
 //Typing Effect Mulai
 
+// const { Timeline } = require("gsap/gsap-core");
+
 const texts = ["Web Developer", "Video/Photo Editor", "Office Administrator", "Digital Marketing", "Others"];
 
 let count = 0;        // index kata di array texts
@@ -199,6 +201,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     opacity: 0, y: -100, duration: 1
   });
 
+  var floatAnim;
   gsap.from(".profile-card", {
     delay: 0.6,
     opacity: 0,
@@ -206,14 +209,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ease: "back.out",
     y: -100,
     onComplete: () => {
-      gsap.to('.profile-card', {
+      floatAnim = gsap.to('.profile-card', {
         y: -20,
         duration: 2,
         repeat: -1,
         yoyo: true,
-        ease: 'sine.inOut'
+        ease: 'sine.inOut',
       });
     }
+  });
+  document.querySelector(".profile-card").addEventListener("mouseenter", () => {
+    if (floatAnim) floatAnim.pause();
+  });
+  document.querySelector(".profile-card").addEventListener("mouseleave", () => {
+    if (floatAnim) floatAnim.resume();
   });
 
   gsap.from(".hero-content", {
@@ -258,58 +267,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   });
+});
 
-  gsap.from('.bina-karya', {
-    scrollTrigger: {
-      trigger: '.bina-karya',
-      toggleActions: 'play pause resume none',
-      start: "top 80%",
-      end: "top 40%",
-      scrub: true
+gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
+  gsap.fromTo(myEdu,
+    {
+      x: indexEdu % 2 === 0 ? -300 : 300,
+      opacity: 0
     },
-    x: -300,
-    opacity: 0,
-    duration: 1.5
-  });
-
-  gsap.from('.sma', {
-    scrollTrigger: {
-      trigger: '.sma',
-      toggleActions: 'play pause resume none',
-      start: "top 80%",
-      end: "top 40%",
-      scrub: true
-    },
-    x: 300,
-    opacity: 0,
-    duration: 1.5
-  });
-
-  gsap.from('.smp', {
-    scrollTrigger: {
-      trigger: '.smp',
-      toggleActions: 'play pause resume none',
-      start: "top 80%",
-      end: "top 40%",
-      scrub: true
-    },
-    x: -300,
-    opacity: 0,
-    duration: 1.5
-  });
-
-  gsap.from('.sd', {
-    scrollTrigger: {
-      trigger: '.sd',
-      toggleActions: 'play pause resume none',
-      start: "top 80%",
-      end: "top 40%",
-      scrub: true
-    },
-    x: 300,
-    opacity: 0,
-    duration: 1.5
-  });
+    {
+      x: 0,
+      opacity: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: myEdu,
+        start: "top 100%",
+        end: "top 55%",
+        scrub: true,
+        //markers: true,
+      }
+    }
+  );
 });
 
 gsap.utils.toArray(".card").forEach((card, i) => {
@@ -331,6 +309,14 @@ gsap.utils.toArray(".card").forEach((card, i) => {
       }
     }
   );
+  card.addEventListener("mouseenter", () => {
+    gsap.to(card, { y: -10, duration: 0.2, ease: "power2.out" });
+  });
+
+  // animasi hover out
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, { y: 1, duration: 0.2, ease: "power2.inOut" });
+  });
 });
 
 
@@ -348,3 +334,55 @@ VanillaTilt.init(document.querySelector(".card__inner"), {
   reverse: true,
   gyroscope: false,
 });
+
+// gsap.from('.bina-karya', {
+//   scrollTrigger: {
+//     trigger: '.bina-karya',
+//     toggleActions: 'play pause resume none',
+//     start: "top 80%",
+//     end: "top 40%",
+//     scrub: true
+//   },
+//   x: -300,
+//   opacity: 0,
+//   duration: 1.5
+// });
+
+// gsap.from('.sma', {
+//   scrollTrigger: {
+//     trigger: '.sma',
+//     toggleActions: 'play pause resume none',
+//     start: "top 80%",
+//     end: "top 40%",
+//     scrub: true
+//   },
+//   x: 300,
+//   opacity: 0,
+//   duration: 1.5
+// });
+
+// gsap.from('.smp', {
+//   scrollTrigger: {
+//     trigger: '.smp',
+//     toggleActions: 'play pause resume none',
+//     start: "top 80%",
+//     end: "top 40%",
+//     scrub: true
+//   },
+//   x: -300,
+//   opacity: 0,
+//   duration: 1.5
+// });
+
+// gsap.from('.sd', {
+//   scrollTrigger: {
+//     trigger: '.sd',
+//     toggleActions: 'play pause resume none',
+//     start: "top 80%",
+//     end: "top 40%",
+//     scrub: true
+//   },
+//   x: 300,
+//   opacity: 0,
+//   duration: 1.5
+// });
