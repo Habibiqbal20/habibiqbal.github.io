@@ -198,8 +198,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable, EaselPlugin, Flip, Observer, PixiPlugin, ScrambleTextPlugin, ScrollTrigger, ScrollSmoother, SplitText, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase)
 
   gsap.from("nav", {
-    opacity: 0, y: -100, duration: 1
+    opacity: 0,
+    y: -100,
+    duration: 1
   });
+
+
+
+  setInterval(() => {
+    const exists = document.querySelector('.open');
+    const li = document.querySelectorAll('.li');
+    const isMobile = window.innerWidth <= 900;
+
+    if (!isMobile) return;
+
+    if (!exists) {
+      gsap.utils.toArray(li).forEach((liAnimate, iAnimate) => {
+        gsap.fromTo(
+          liAnimate,
+          {
+            opacity: 0,
+            x: 20
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: iAnimate * 0.2,
+            ease: "power4.in"
+          }
+        );
+      });
+    }
+  }, 500);
+
+
+
 
   var floatAnim;
   gsap.from(".profile-card", {
@@ -214,7 +248,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 2,
         repeat: -1,
         yoyo: true,
-        ease: 'sine.inOut',
+        ease: 'sine.inOut'
       });
     }
   });
@@ -248,14 +282,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //   chars: "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     //   speed: 0.1
     // },
-    y: 50,
+    y: -50,
     opacity: 0,
     duration: 1,
     scrollTrigger: {
       trigger: '.About-me',
+      start: 'top 80%',
+      //markers: true,
       once: true
     }
   });
+
+
+
+  // SPLIT TEXT ABOUT MULAI
 
   document.fonts.ready.then(() => {
     gsap.set(".split", { opacity: 1 });
@@ -270,8 +310,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         split = gsap.from(self.lines, {
           scrollTrigger: {
             trigger: '.split',
-            top: 'top 80%',
-            toggleActions: 'play pause resume none'
+            start: 'top 80%',
+            toggleActions: 'play pause resume none',
+            //markers: true
           },
           duration: 1,
           yPercent: 100,
@@ -284,6 +325,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 });
+
+// SPLIT TEXT ABOUT SELESAI
+
+
+
+// TIMELINE EDUCATION MULAI
 
 gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
   gsap.fromTo(myEdu,
@@ -305,13 +352,26 @@ gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
     }
   );
   myEdu.addEventListener("mouseenter", () => {
-    gsap.to(myEdu, { y: -10, duration: 0.2, ease: "power2.out" });
+    gsap.to(myEdu, {
+      y: -10,
+      duration: 0.2,
+      ease: "power2.out"
+    });
   });
   myEdu.addEventListener("mouseleave", () => {
-    gsap.to(myEdu, { y: 1, duration: 0.2, ease: "power2.out" });
+    gsap.to(myEdu, {
+      y: 1,
+      duration: 0.2,
+      ease: "power2.out"
+    });
   });
 });
 
+// TIMELINE EDUCATION SELESAI
+
+
+
+// CARD PROJECT MULAI
 
 gsap.utils.toArray(".card").forEach((card, i) => {
   gsap.fromTo(card,
@@ -333,14 +393,22 @@ gsap.utils.toArray(".card").forEach((card, i) => {
     }
   );
   card.addEventListener("mouseenter", () => {
-    gsap.to(card, { y: -10, duration: 0.2, ease: "power2.out" });
+    gsap.to(card, {
+      y: -10,
+      duration: 0.2,
+      ease: "power2.out"
+    });
   });
-
-  // animasi hover out
   card.addEventListener("mouseleave", () => {
-    gsap.to(card, { y: 1, duration: 0.2, ease: "power2.inOut" });
+    gsap.to(card, {
+      y: 1,
+      duration: 0.2,
+      ease: "power2.inOut"
+    });
   });
 });
+
+// CARD PROJECT SELESAI
 
 
 VanillaTilt.init(document.querySelector(".profile-card"), {

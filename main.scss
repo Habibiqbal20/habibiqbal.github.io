@@ -119,11 +119,11 @@ nav {
           }
 
           .active:hover {
-            color: $text-muted;
+            color: $secondary-text;
           }
 
           a:hover {
-            color: $text-muted;
+            color: $secondary-text;
             ;
           }
         }
@@ -153,17 +153,34 @@ nav {
         z-index: -10;
         right: 0;
         top: 0;
-        width: 80%;
+        width: 380px;
         height: 100vh;
         transform: translateX(100%);
         transition: all 1s;
         opacity: 0;
+        @media (max-width : 565px) {
+          width: 80%;
+        }
 
         ul {
-          justify-content: space-evenly;
           flex-direction: column;
-          align-items: center;
+          align-items: start;
+          justify-content: initial;
+          gap: 50px;
+          padding-left: 50px;
+          margin-top: 80px;
           height: 90vh;
+
+          li {
+            width: fit-content;
+            transition: ease 0.5s;
+            &:hover {
+              transform: translate(10px);
+            }
+            a {
+              font-size: 2rem;
+            }
+          }
         }
 
         // display: none;
