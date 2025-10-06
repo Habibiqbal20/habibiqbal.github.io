@@ -223,15 +223,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
           {
             opacity: 1,
             x: 0,
-            duration: 0.6,
-            delay: iAnimate * 0.2,
+            duration: 1,
+            delay: iAnimate * 0.3,
             ease: "power4.in"
           }
         );
+        liAnimate.addEventListener('mouseenter', () => {
+          gsap.to(liAnimate, {
+            x: 20,
+            duration: 0.2,
+            ease: 'power4.in'
+          });
+        });
+        liAnimate.addEventListener('mouseleave', () => {
+          gsap.to(liAnimate, {
+            x: 0,
+            duration: 0.2,
+            ease: 'power4.in'
+          });
+        });
       });
     }
   }, 500);
-
 
 
 
