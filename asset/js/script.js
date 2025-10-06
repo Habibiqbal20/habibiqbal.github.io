@@ -186,8 +186,8 @@ autoScroll();
 
 document.getElementById("downloadBtn").addEventListener("click", function () {
   const link = document.createElement("a");
-  link.href = "asset/New CV.pdf";   // path file CV
-  link.download = "Curriculum Vitae Habib Iqbal.pdf"; // nama file saat didownload
+  link.href = "asset/New CV.pdf";
+  link.download = "Curriculum Vitae Habib Iqbal.pdf";
   link.click();
 });
 
@@ -204,47 +204,60 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
 
+// ANIMASI MOBILE NAVBAR MULAI
 
-  setInterval(() => {
-    const exists = document.querySelector('.open');
-    const li = document.querySelectorAll('.li');
-    const isMobile = window.innerWidth <= 900;
+function handleMouseEnter(e) {
+  gsap.to(e.currentTarget, {
+    x: 20,
+    duration: 0.2,
+    ease: 'power4.in'
+  });
+}
+function handleMouseLeave(e) {
+  gsap.to(e.currentTarget, {
+    x: 0,
+    duration: 0.2,
+    ease: 'power4.in'
+  });
+}
+setInterval(() => {
+  const exists = document.querySelector('.open');
+  const li = document.querySelectorAll('.li');
+  const isMobile = window.innerWidth <= 900;
 
-    if (!isMobile) return;
+  if (!isMobile) {
+    li.forEach(liAnimate => {
+      liAnimate.removeEventListener('mouseenter', handleMouseEnter);
+      liAnimate.removeEventListener('mouseleave', handleMouseLeave);
+      gsap.set(liAnimate, { clearProps: 'all' });
+    });
+    return;
+  }
 
-    if (!exists) {
-      gsap.utils.toArray(li).forEach((liAnimate, iAnimate) => {
-        gsap.fromTo(
-          liAnimate,
-          {
-            opacity: 0,
-            x: 20
-          },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            delay: iAnimate * 0.3,
-            ease: "power4.in"
-          }
-        );
-        liAnimate.addEventListener('mouseenter', () => {
-          gsap.to(liAnimate, {
-            x: 20,
-            duration: 0.2,
-            ease: 'power4.in'
-          });
-        });
-        liAnimate.addEventListener('mouseleave', () => {
-          gsap.to(liAnimate, {
-            x: 0,
-            duration: 0.2,
-            ease: 'power4.in'
-          });
-        });
-      });
-    }
-  }, 500);
+  if (!exists) {
+    gsap.utils.toArray(li).forEach((liAnimate, iAnimate) => {
+      gsap.fromTo(
+        liAnimate,
+        {
+          opacity: 0,
+          x: 20
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: iAnimate * 0.3,
+          ease: "power4.in"
+        }
+      );
+
+      liAnimate.addEventListener('mouseenter', handleMouseEnter);
+      liAnimate.addEventListener('mouseleave', handleMouseLeave);
+    });
+  }
+}, 500);
+
+// ANIMASI MOBILE NAVBAR SELESAI
 
 
 
@@ -337,90 +350,90 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   });
-});
-
-// SPLIT TEXT ABOUT SELESAI
 
 
+  // SPLIT TEXT ABOUT SELESAI
 
-// TIMELINE EDUCATION MULAI
 
-gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
-  gsap.fromTo(myEdu,
-    {
-      x: indexEdu % 2 === 0 ? -300 : 300,
-      opacity: 0
-    },
-    {
-      x: 0,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: myEdu,
-        start: "top 90%",
-        end: "top 70%",
-        scrub: true,
-        //markers: true,
+
+  // TIMELINE EDUCATION MULAI
+
+  gsap.utils.toArray('.timeline-content').forEach((myEdu, indexEdu) => {
+    gsap.fromTo(myEdu,
+      {
+        x: indexEdu % 2 === 0 ? -300 : 300,
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: myEdu,
+          start: "top 90%",
+          end: "top 70%",
+          scrub: true,
+          //markers: true,
+        }
       }
-    }
-  );
-  myEdu.addEventListener("mouseenter", () => {
-    gsap.to(myEdu, {
-      y: -10,
-      duration: 0.2,
-      ease: "power2.out"
+    );
+    myEdu.addEventListener("mouseenter", () => {
+      gsap.to(myEdu, {
+        y: -10,
+        duration: 0.2,
+        ease: "power2.out"
+      });
+    });
+    myEdu.addEventListener("mouseleave", () => {
+      gsap.to(myEdu, {
+        y: 1,
+        duration: 0.2,
+        ease: "power2.out"
+      });
     });
   });
-  myEdu.addEventListener("mouseleave", () => {
-    gsap.to(myEdu, {
-      y: 1,
-      duration: 0.2,
-      ease: "power2.out"
-    });
-  });
-});
 
-// TIMELINE EDUCATION SELESAI
+  // TIMELINE EDUCATION SELESAI
 
 
 
-// CARD PROJECT MULAI
+  // CARD PROJECT MULAI
 
-gsap.utils.toArray(".card").forEach((card, i) => {
-  gsap.fromTo(card,
-    {
-      x: i % 2 === 0 ? -300 : 300,
-      opacity: 0
-    },
-    {
-      x: 0,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-        end: "top 35%",
-        scrub: true,
-        //markers: true,
+  gsap.utils.toArray(".card").forEach((card, i) => {
+    gsap.fromTo(card,
+      {
+        x: i % 2 === 0 ? -300 : 300,
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          end: "top 35%",
+          scrub: true,
+          //markers: true,
+        }
       }
-    }
-  );
-  card.addEventListener("mouseenter", () => {
-    gsap.to(card, {
-      y: -10,
-      duration: 0.2,
-      ease: "power2.out"
+    );
+    card.addEventListener("mouseenter", () => {
+      gsap.to(card, {
+        y: -10,
+        duration: 0.2,
+        ease: "power2.out"
+      });
     });
-  });
-  card.addEventListener("mouseleave", () => {
-    gsap.to(card, {
-      y: 1,
-      duration: 0.2,
-      ease: "power2.inOut"
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        y: 1,
+        duration: 0.2,
+        ease: "power2.inOut"
+      });
     });
   });
 });
-
 // CARD PROJECT SELESAI
 
 
