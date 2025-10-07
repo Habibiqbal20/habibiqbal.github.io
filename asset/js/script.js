@@ -204,60 +204,60 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
 
-// ANIMASI MOBILE NAVBAR MULAI
+  // ANIMASI MOBILE NAVBAR MULAI
 
-function handleMouseEnter(e) {
-  gsap.to(e.currentTarget, {
-    x: 20,
-    duration: 0.2,
-    ease: 'power4.in'
-  });
-}
-function handleMouseLeave(e) {
-  gsap.to(e.currentTarget, {
-    x: 0,
-    duration: 0.2,
-    ease: 'power4.in'
-  });
-}
-setInterval(() => {
-  const exists = document.querySelector('.open');
-  const li = document.querySelectorAll('.li');
-  const isMobile = window.innerWidth <= 900;
-
-  if (!isMobile) {
-    li.forEach(liAnimate => {
-      liAnimate.removeEventListener('mouseenter', handleMouseEnter);
-      liAnimate.removeEventListener('mouseleave', handleMouseLeave);
-      gsap.set(liAnimate, { clearProps: 'all' });
-    });
-    return;
-  }
-
-  if (!exists) {
-    gsap.utils.toArray(li).forEach((liAnimate, iAnimate) => {
-      gsap.fromTo(
-        liAnimate,
-        {
-          opacity: 0,
-          x: 20
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: iAnimate * 0.3,
-          ease: "power4.in"
-        }
-      );
-
-      liAnimate.addEventListener('mouseenter', handleMouseEnter);
-      liAnimate.addEventListener('mouseleave', handleMouseLeave);
+  function handleMouseEnter(e) {
+    gsap.to(e.currentTarget, {
+      x: 20,
+      duration: 0.2,
+      ease: 'power4.in'
     });
   }
-}, 500);
+  function handleMouseLeave(e) {
+    gsap.to(e.currentTarget, {
+      x: 0,
+      duration: 0.2,
+      ease: 'power4.in'
+    });
+  }
+  setInterval(() => {
+    const exists = document.querySelector('.open');
+    const li = document.querySelectorAll('.li');
+    const isMobile = window.innerWidth <= 900;
 
-// ANIMASI MOBILE NAVBAR SELESAI
+    if (!isMobile) {
+      li.forEach(liAnimate => {
+        liAnimate.removeEventListener('mouseenter', handleMouseEnter);
+        liAnimate.removeEventListener('mouseleave', handleMouseLeave);
+        gsap.set(liAnimate, { clearProps: 'all' });
+      });
+      return;
+    }
+
+    if (!exists) {
+      gsap.utils.toArray(li).forEach((liAnimate, iAnimate) => {
+        gsap.fromTo(
+          liAnimate,
+          {
+            opacity: 0,
+            x: 20
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: iAnimate * 0.3,
+            ease: "power4.in"
+          }
+        );
+
+        liAnimate.addEventListener('mouseenter', handleMouseEnter);
+        liAnimate.addEventListener('mouseleave', handleMouseLeave);
+      });
+    }
+  }, 500);
+
+  // ANIMASI MOBILE NAVBAR SELESAI
 
 
 
@@ -276,7 +276,7 @@ setInterval(() => {
         yoyo: true,
         ease: 'sine.inOut'
       });
-    }
+    },
   });
   document.querySelector(".profile-card").addEventListener("mouseenter", () => {
     if (floatAnim) floatAnim.pause();
@@ -285,13 +285,57 @@ setInterval(() => {
     if (floatAnim) floatAnim.resume();
   });
 
+
   gsap.from(".hero-content", {
     delay: 0.6,
     opacity: 0,
     duration: 1,
     ease: "back.out",
-    y: -100
+    y: -100,
+    onComplete: () => {
+      gsap.to('.animated-h', {
+        delay: 2.5,
+        rotationX: 360 * 2,
+        duration: 3,
+        ease: "power2.inOut",
+        repeat: -1,
+        repeatDelay: 5,
+        yoyo: true,
+        transformOrigin: "center center"
+      })
+      gsap.to(".animated-i", {
+        delay: 3,
+        rotationX: 180,
+        duration: 2,
+        ease: "power2.inOut",
+        repeat: -1,
+        repeatDelay: 5,
+        yoyo: true,
+        transformOrigin: "center center"
+      })
+      gsap.to('.animated-q', {
+        delay: 3.3,
+        rotationY: 360 * 2,
+        duration: 3,
+        ease: "power2.inOut",
+        repeat: -1,
+        repeatDelay: 5,
+        yoyo: true,
+        transformOrigin: "center center"
+      })
+      gsap.to('.animated-a', {
+        delay: 3.6,
+        rotationX: 360 * 2,
+        duration: 3,
+        ease: "power2.inOut",
+        repeat: -1,
+        repeatDelay: 5,
+        yoyo: true,
+        transformOrigin: "center center"
+      })
+    },
   });
+
 
   gsap.from(".social-icons", {
     delay: 1,
@@ -300,6 +344,7 @@ setInterval(() => {
     ease: "back.out",
     y: -100
   });
+
 
   gsap.from(".About-me", {
     //duration: 0.5,
@@ -354,7 +399,26 @@ setInterval(() => {
 
   // SPLIT TEXT ABOUT SELESAI
 
+  gsap.from('.github-profile', {
+    scrollTrigger: {
+      trigger: '.github-profile',
+      start: 'top 80%',
+    },
+    x: -200,
+    opacity: 0,
+    duration: 1.3,
 
+  });
+  gsap.from('.calendar', {
+    scrollTrigger: {
+      trigger: '.calendar',
+      start: 'top 80%',
+    },
+    x: 200,
+    opacity: 0,
+    duration: 1.3,
+    delay: 0.8
+  });
 
   // TIMELINE EDUCATION MULAI
 

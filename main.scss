@@ -158,6 +158,7 @@ nav {
         transform: translateX(100%);
         transition: all 1s;
         opacity: 0;
+
         @media (max-width : 565px) {
           width: 80%;
         }
@@ -174,9 +175,11 @@ nav {
           li {
             width: fit-content;
             transition: ease 0.5s;
+
             &:hover {
               transform: translate(10px);
             }
+
             a {
               font-size: 2rem;
             }
@@ -246,6 +249,14 @@ nav {
 }
 
 /* ===== HERO SECTION ===== */
+.animated-h,
+.animated-i,
+.animated-q,
+.animated-a {
+  display: inline-block;
+  transform-origin: center center;
+}
+
 .hero {
   color: $text-color;
 
@@ -260,6 +271,7 @@ nav {
 
     .hero-content {
       max-width: 600px;
+      perspective: 800px;
 
       h3 {
         font-size: 20px;
@@ -598,6 +610,7 @@ nav {
       display: flex;
       justify-content: center;
       gap: 20px;
+      overflow-x: hidden;
 
       @media (max-width: 768px) {
         & {
@@ -868,13 +881,32 @@ nav {
   margin-bottom: 50px;
   padding: 0 40px;
   color: $primary-color;
-  font-size: 1.5rem;
+  font-size: 2rem;
+
+  @media (min-width: 1300px) {
+    & {
+      max-width: 1300px;
+      align-items: center;
+      justify-self: anchor-center;
+      width: -webkit-fill-available;
+    }
+  }
+
 }
 
 .timeline {
   position: relative;
   padding: 20px 40px;
   overflow: hidden;
+
+  @media (min-width: 1300px) {
+    & {
+      max-width: 1300px;
+      align-items: center;
+      justify-self: anchor-center;
+      width: -webkit-fill-available;
+    }
+  }
 
   &::before {
     content: '';
@@ -1035,12 +1067,21 @@ nav {
 // CARD PROJECT MULAI
 
 .projects {
-  padding: 0 10%;
-  text-align: center;
+  padding: 0 40px;
+  text-align: start;
   margin-top: 80px;
   overflow: hidden;
 
-  h2 {
+  @media (min-width: 1300px) {
+    & {
+      max-width: 1300px;
+      align-items: center;
+      justify-self: anchor-center;
+      width: -webkit-fill-available;
+    }
+  }
+
+  h4 {
     font-size: 2rem;
     margin-bottom: 40px;
     color: $primary-color;
@@ -1205,7 +1246,8 @@ nav {
     margin: 0 auto;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     color: $footer-accent;
     margin-bottom: 1rem;
   }
@@ -1221,12 +1263,15 @@ nav {
     ul {
       list-style: none;
       padding: 0;
+
       li {
         margin: 0.5rem 0;
+
         a {
           color: $footer-text;
           text-decoration: none;
           transition: color 0.3s ease;
+
           &:hover {
             color: $footer-accent;
           }
@@ -1239,10 +1284,12 @@ nav {
     .footer-social-icons {
       display: flex;
       gap: 1rem;
+
       a {
         color: $footer-text;
         font-size: 1.5rem;
         transition: color 0.3s ease;
+
         &:hover {
           color: $footer-accent;
         }
@@ -1253,7 +1300,7 @@ nav {
   .footer-bottom {
     text-align: center;
     padding: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     background: darken($footer-bg, 5%);
   }

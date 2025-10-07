@@ -183,6 +183,14 @@ nav .main .menu-btn {
 }
 
 /* ===== HERO SECTION ===== */
+.animated-h,
+.animated-i,
+.animated-q,
+.animated-a {
+  display: inline-block;
+  transform-origin: center center;
+}
+
 .hero {
   color: #fff;
 }
@@ -197,6 +205,7 @@ nav .main .menu-btn {
 }
 .hero .container .hero-content {
   max-width: 600px;
+  perspective: 800px;
 }
 .hero .container .hero-content h3 {
   font-size: 20px;
@@ -466,6 +475,7 @@ nav .main .menu-btn {
   display: flex;
   justify-content: center;
   gap: 20px;
+  overflow-x: hidden;
 }
 @media (max-width: 768px) {
   .about .github .content {
@@ -656,13 +666,29 @@ nav .main .menu-btn {
   margin-bottom: 50px;
   padding: 0 40px;
   color: #00e0ff;
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+@media (min-width: 1300px) {
+  .timeline-heading {
+    max-width: 1300px;
+    align-items: center;
+    justify-self: anchor-center;
+    width: -webkit-fill-available;
+  }
 }
 
 .timeline {
   position: relative;
   padding: 20px 40px;
   overflow: hidden;
+}
+@media (min-width: 1300px) {
+  .timeline {
+    max-width: 1300px;
+    align-items: center;
+    justify-self: anchor-center;
+    width: -webkit-fill-available;
+  }
 }
 .timeline::before {
   content: "";
@@ -780,12 +806,20 @@ nav .main .menu-btn {
   }
 }
 .projects {
-  padding: 0 10%;
-  text-align: center;
+  padding: 0 40px;
+  text-align: start;
   margin-top: 80px;
   overflow: hidden;
 }
-.projects h2 {
+@media (min-width: 1300px) {
+  .projects {
+    max-width: 1300px;
+    align-items: center;
+    justify-self: anchor-center;
+    width: -webkit-fill-available;
+  }
+}
+.projects h4 {
   font-size: 2rem;
   margin-bottom: 40px;
   color: #00e0ff;
@@ -917,7 +951,8 @@ nav .main .menu-btn {
   max-width: 1200px;
   margin: 0 auto;
 }
-.footer h2, .footer h3 {
+.footer h2,
+.footer h3 {
   color: #00e0ff;
   margin-bottom: 1rem;
 }
