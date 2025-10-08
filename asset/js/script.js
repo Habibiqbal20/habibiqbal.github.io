@@ -194,6 +194,36 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
 // CV Download Selesai
 
 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxOFrbkRVV2sHQ3jtcmy-OAInxA-BaRio3Lobu4JCdLrHwGo800aPrmzTfHEPrS0NwGAw/exec'
+const form = document.forms['submit-to-google-sheet'];
+const kirim = document.querySelector('.kirim');
+const loading = document.querySelector('.loading');
+const alertText = document.querySelector('#alertBox');
+const closeAlert = document.getElementById("closeAlert");
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  kirim.classList.toggle('hilang');
+  loading.classList.toggle('hilang');
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then(response => {
+      kirim.classList.toggle('hilang');
+      loading.classList.toggle('hilang');
+      alertText.classList.toggle('show');
+      const autoHide = setTimeout(() => {
+        alertText.classList.remove("show");
+      }, 10000);
+      form.reset();
+      console.log('Success!', response);
+      closeAlert.addEventListener('click', () => {
+        clearTimeout(autoHide);
+        alertText.classList.remove('show');
+      });
+    })
+    .catch(error => console.error('Error!', error.message));
+});
+
+
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable, EaselPlugin, Flip, Observer, PixiPlugin, ScrambleTextPlugin, ScrollTrigger, ScrollSmoother, SplitText, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase)
 
@@ -515,6 +545,8 @@ VanillaTilt.init(document.querySelector(".card__inner"), {
   reverse: true,
   gyroscope: false,
 });
+"AKfycbxOFrbkRVV2sHQ3jtcmy-OAInxA-BaRio3Lobu4JCdLrHwGo800aPrmzTfHEPrS0NwGAw"
+"https://script.google.com/macros/s/AKfycbxOFrbkRVV2sHQ3jtcmy-OAInxA-BaRio3Lobu4JCdLrHwGo800aPrmzTfHEPrS0NwGAw/exec"
 
 // gsap.from('.bina-karya', {
 //   scrollTrigger: {

@@ -877,6 +877,38 @@ nav .main .menu-btn {
   color: #f9f9f9;
   text-align: center;
 }
+.contact .show {
+  opacity: 1 !important;
+  bottom: 30px !important;
+}
+.contact .alert-float {
+  position: fixed;
+  bottom: -100px;
+  left: 20px;
+  background: #28a745;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 9999;
+}
+.contact .alert-float .alert-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.contact .alert-float .alert-close:hover {
+  transform: scale(1.2);
+}
 .contact h2 {
   font-size: 2rem;
   margin-bottom: 40px;
@@ -906,7 +938,14 @@ nav .main .menu-btn {
 .contact .contact-form .form-group textarea:focus {
   box-shadow: 0 3px 12px rgba(0, 224, 255, 0.4);
 }
+.contact .contact-form .hilang {
+  display: none !important;
+}
 .contact .contact-form .btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -915,11 +954,35 @@ nav .main .menu-btn {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 .contact .contact-form .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 224, 255, 0.4);
+}
+.contact .contact-form .btn .spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid #1e1e2f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+.contact .contact-form .btn.loading {
+  cursor: not-allowed;
+}
+.contact .contact-form .btn.loading .btn-text {
+  opacity: 0.9;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .contact .download-cv .download-btn {
   background: transparent;
