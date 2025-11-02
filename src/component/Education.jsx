@@ -19,7 +19,7 @@ export default function Education() {
         },
         {
             title: 'SMP NEGERI 1 DOLOK BATU NANGGAR',
-            listItem: ['Address : Serbelawan', 'Year : 2015 - 2018', 'Average Value : 3.7'],
+            listItem: ['Address : Serbelawan', 'Year : 2015 - 2018', 'Average Value : 8.5'],
             link: 'https://maps.app.goo.gl/YYPVnFmUVe9CeazQ7',
             img: SMA
         },
